@@ -1,6 +1,6 @@
 import vacationHold from '../assets/vacationHold.jpg';
 import {useState} from "react";
-import checkMark from "../src/assets/check.png";
+import check from '../assets/check.png';
 
 export default function Forms() {
 
@@ -33,10 +33,10 @@ export default function Forms() {
                     <div className="fieldStartDate">{formData.startDate}</div>
                     <div className="fieldEndDate">{formData.endDate}</div>
                     {formData.checkBoxOne ?
-                        <div className="fieldCheckOne"><img style={{width: "25px"}} src={checkMark} alt={"checkmark"}/>
+                        <div className="fieldCheckOne"><img style={{width: "25px"}} src={check} alt={"checkmark"}/>
                         </div> : ""}
                     {formData.checkBoxTwo ?
-                        <div className="fieldCheckTwo"><img style={{width: "25px"}} src={checkMark} alt={"checkmark"}/>
+                        <div className="fieldCheckTwo"><img style={{width: "25px"}} src={check} alt={"checkmark"}/>
                         </div> : ""}
                 </div>
                 {/* Input for the user to type */}
