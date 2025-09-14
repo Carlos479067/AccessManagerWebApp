@@ -14,20 +14,16 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 1000;
+  color: black;
 }
 a:hover {
-  color: #535bf2;
+  color: #1a1a1a;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 h1 {
@@ -54,6 +50,36 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.container {
+  color: black;
+  align-items: center;
+  font-family: 'Libre Baskerville', serif;
+  display: block;
+  border-bottom: 2px solid black;
+
+}
+
+.searchContainer {
+  color: black;
+  align-items: center;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.card {
+  width: 650px;
+  margin: 40px;
+  border: 4px solid #222;
+}
+
+.routeSplitsTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*max-width: 1350px;*/
+  /*width: 100%;*/
+
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,8 +93,552 @@ button:focus-visible {
   }
 }
 
-.searchContainer {
-  color: black;
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+/* ----------------------------------------------------------------*/
+#header {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  background-color: #0A3161;
+  width: 100vw;
+  padding-top: 10px;
+}
+
+#headerContent {
+  display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+#headerLogout {
+  width: 36px;
+  cursor: pointer;
+}
+
+#logoutContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /*padding-bottom: 60px;*/
+}
+
+#headerImage {
+  width: 110px;
+}
+
+#topFooter {
+  background-color: cornflowerblue;
+  height: 50px;
+  width: 100vw;
+}
+
+#lowFooter {
+  background-color: #0A3161;
+  text-align: center;
+  padding: 50px 0;
+  width: 100vw;
+}
+
+/* ----------------------------------------------------------------*/
+.navbar {
+  display: flex;
+  background-color: cornflowerblue;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1350px;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+
+}
+
+nav a {
+  margin: 0;
+  display: block;
+  text-decoration: none;
+  padding: 1px 25px;
+  color: white;
+  cursor: pointer;
   font-family: 'Libre Baskerville', serif;
+}
+
+nav a:hover {
+  color: white;
+  /*border: 1px solid white;*/
+  background-color: rgb(60, 110, 197);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0A3161;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+  width: 100%;
+  display: block;
+  background-color: cornflowerblue;
+  border: 1px solid white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.search {
+  background-color: white;
+  padding: 3px 0;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  text-align: start;
+  width: 200px;
+}
+
+.btn-search {
+  padding: 2px 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+#mainTitle {
+  text-decoration: underline;
+  font-size: 35px;
+  text-align: center;
+}
+
+main ul {
+  text-align: center; /* makes li text centered */
+  padding: 0;
+  margin: 0;
+}
+
+main h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 25px;
+  padding-bottom: 15px;
+}
+
+main li {
+  list-style-type: none;
+  padding-top: 10px;
+  margin: 0;
+  font-size: 18px;
+}
+
+main a {
+  cursor: pointer;
+  color: #646cff;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: #0A3161;
+}
+/*controls content inside main body */
+#main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.appMain {
+  flex: 1;
+  color: black;
+  padding-top: 4em;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* ----------------------Login-Page-----------------------------*/
+
+.loginDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginLabel {
+  width: 6em;
+  font-size: 20px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.loginInput {
+  background-color: white;
+  padding: 3px 0;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  text-align: start;
+  width: 150px;
+}
+
+.loginBtn {
+  margin-top: 2em;
+  padding: 2px 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.loginBtn:hover {
+  border-color: #646cff;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#signUpLink {
+  margin-top: 2em;
+}
+
+.errorMsg {
+  color: red;
+
+}
+
+.successMsg {
+  color: green;
+}
+
+/* ----------------------Form-Page-----------------------------*/
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+  align-items: center;
+  position: relative;
+}
+
+.formContainer button {
+  margin-top: 25px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.formContainer button:hover {
+  border-color: #646cff;
+}
+
+.formContainer h2 {
+  text-decoration: underline;
+}
+
+.formTemplate {
+  position: relative;
+  width: 900px; /* match your form image */
+  height: 600px;
+}
+
+.formTemplate img {
+  width: 100%;
+  height: 100%;
+}
+
+.fieldName {
+  position: absolute;
+  top: 157px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nameInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  left: 85px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldEmail {
+  position: absolute;
+  top: 309px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.emailInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  left: 85px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldStartDate {
+  position: absolute;
+  top: 236px; /* adjust to where the name goes */
+  right: 235px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.startDateInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  left: 590px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldEndDate {
+  position: absolute;
+  top: 277px; /* adjust to where the name goes */
+  right: 240px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.endDateInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  right: 55px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldAddress {
+  position: absolute;
+  top: 235px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.addressInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  left: 580px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldPhoneNumber {
+  position: absolute;
+  top: 278px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.phoneNumberInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  right: 20px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldCheckOne {
+  position: absolute;
+  top: 153px; /* adjust to where the name goes */
+  left: 572px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkBoxOneInput {
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 60px;
+  left: 165px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldCheckTwo {
+  position: absolute;
+  top: 171px; /* adjust to where the name goes */
+  left: 572px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkBoxTwoInput {
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 60px;
+  left: 670px;
+  width: 150px;
+  z-index: 2;
+}
+
+.formText {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px 200px;
+  justify-items: start;
+  padding-left: 30px;
+}
+
+/* ----------------------Form-Page-End-----------------------------*/
+
+@media print {
+
+  @page {
+    margin: 0; /* remove default browser margins */
+  }
+
+  .formContainer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .formText {
+    display: none;
+  }
+
+  .nameInput {
+    display: none;
+  }
+
+  .addressInput {
+    display: none;
+  }
+
+  .checkBoxOneInput {
+    display: none;
+  }
+
+  .checkBoxTwoInput {
+    display: none;
+  }
+
+  .emailInput {
+    display: none;
+  }
+
+  .endDateInput {
+    display: none;
+  }
+
+  .startDateInput {
+    display: none;
+  }
+
+  .phoneNumberInput {
+    display: none;
+  }
+
+  #vacationFormImg {
+    width: 100%;            /* Image fits container exactly */
+    height: auto;
+  }
+  .formContainer h2 {
+    display: none;
+  }
+  .formContainer button {
+    display: none;
+  }
+  .navbar {
+    display: none;
+  }
+  #header {
+    display: none;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .search {
+    width: 100px;
+  }
+
+  #header h3 {
+    padding-right: 45px;
+  }
+
+  #headerContent {
+    padding: 0 10px; /* smaller padding on mobile */
+    display: flex;
+  }
+
+  #headerImage {
+    width: 100px; /* smaller image if needed */
+    margin-right: 50px;
+  }
+
+  #vacationFormImg {
+    width: 350px;
+  }
 }
