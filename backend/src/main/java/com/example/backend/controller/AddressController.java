@@ -2,10 +2,8 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.AddressDto;
 import com.example.backend.service.AddressService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -21,5 +19,15 @@ public class AddressController {
     @GetMapping("/results")
     public List<AddressDto> searchResults(@RequestParam(required = false) String num, @RequestParam(required = false) String name, @RequestParam(required = false) String neighborhood) {
         return addressService.searchResults(num, name, neighborhood);
+    }
+
+    @GetMapping("/codes/{routeNumber}")
+    public List<AddressDto> routeResults(@PathVariable String routeNumber) {
+        return addressService.routeResults(routeNumber);
+    }
+
+    @GetMapping("/splits/{routeNumber}")
+    public List<AddressDto> splitResults(@PathVariable String routeNumber) {
+        return addressService.routeResults(routeNumber);
     }
 }
