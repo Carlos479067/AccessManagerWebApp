@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import gif from "../../../../../deployExample/frontend/src/assets/under-construction-pikachu.gif";
+import gif from "../src/assets/under-construction-pikachu.gif"
 
 export default function RouteSplits() {
 
