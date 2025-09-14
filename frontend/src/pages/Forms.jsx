@@ -1,6 +1,6 @@
-import vacationHoldImg from "../../../../../deployExample/frontend/src/assets/vacationHold.jpg";
+import vacationHold from '../assets/vacationHold.jpg';
 import {useState} from "react";
-import checkMark from "../../../../../deployExample/frontend/src/assets/check.png";
+import checkMark from "../src/assets/check.png";
 
 export default function Forms() {
 
@@ -24,7 +24,7 @@ export default function Forms() {
             <div className={"formContainer"}>
                 <h2>Forms</h2>
                 <div className="formTemplate">
-                    <img id="vacationFormImg" src={vacationHoldImg} alt="Vacation Form"/>
+                    <img id="vacationFormImg" src={vacationHold} alt="Vacation Form"/>
                     {/* Overlaid text */}
                     <div className="fieldName">{formData.name}</div>
                     <div className="fieldAddress">{formData.address}</div>
