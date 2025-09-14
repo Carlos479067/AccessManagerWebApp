@@ -1,62 +1,107 @@
-import {useState} from "react";
+import {NavLink} from "react-router-dom";
 
-export default function Home() {
+export default function Home ({searchResults}) {
 
-    const [addressSearch, setAddressSearch] = useState("");
-    const [renderSearch, setRenderSearch] = useState("");
+    let contentToRender = <></>;
 
-    function handleQuery(event) {
-        // Gets user input
-        setAddressSearch(event.target.value);
+    if(searchResults.length === 0) {
+        contentToRender =
+            <>
+                <div id={"main"}>
+                    <div>
+                        <h2>Route Codes</h2>
+                        <ul>
+                            <li><NavLink to={"/codes/4925"}>Route 4925</NavLink></li>
+                            <li><NavLink to={"/codes/4929"}>Route 4929</NavLink></li>
+                            <li><NavLink to={"/codes/4930"}>Route 4930</NavLink></li>
+                            <li><NavLink to={"/codes/4933"}>Route 4933</NavLink></li>
+                            <li><NavLink to={"/codes/4934"}>Route 4934</NavLink></li>
+                            <li><NavLink to={"/codes/4935"}>Route 4935</NavLink></li>
+                            <li><NavLink to={"/codes/4937"}>Route 4937</NavLink></li>
+                            <li><NavLink to={"/codes/4938"}>Route 4938</NavLink></li>
+                            <li><NavLink to={"/codes/4942"}>Route 4942</NavLink></li>
+                            <li><NavLink to={"/codes/4943"}>Route 4943</NavLink></li>
+                            <li><NavLink to={"/codes/4948"}>Route 4948</NavLink></li>
+                            <li><NavLink to={"/codes/4952"}>Route 4952</NavLink></li>
+                            <li><NavLink to={"/codes/4954"}>Route 4954</NavLink></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Route Splits</h2>
+                        <ul>
+                            <li><NavLink to={"/splits/4925"}>Route 4925</NavLink></li>
+                            <li><NavLink to={"/splits/4929"}>Route 4929</NavLink></li>
+                            <li><NavLink to={"/splits/4930"}>Route 4930</NavLink></li>
+                            <li><NavLink to={"/splits/4933"}>Route 4933</NavLink></li>
+                            <li><NavLink to={"/splits/4934"}>Route 4934</NavLink></li>
+                            <li><NavLink to={"/splits/4935"}>Route 4935</NavLink></li>
+                            <li><NavLink to={"/splits/4937"}>Route 4937</NavLink></li>
+                            <li><NavLink to={"/splits/4938"}>Route 4938</NavLink></li>
+                            <li><NavLink to={"/splits/4942"}>Route 4942</NavLink></li>
+                            <li><NavLink to={"/splits/4943"}>Route 4943</NavLink></li>
+                            <li><NavLink to={"/splits/4948"}>Route 4948</NavLink></li>
+                            <li><NavLink to={"/splits/4952"}>Route 4952</NavLink></li>
+                            <li><NavLink to={"/splits/4954"}>Route 4954</NavLink></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Route Codes</h2>
+                        <ul>
+                            <li><NavLink to={"/codes/4017"}>Route 4017</NavLink></li>
+                            <li><NavLink to={"/codes/4019"}>Route 4019</NavLink></li>
+                            <li><NavLink to={"/codes/4020"}>Route 4020</NavLink></li>
+                            <li><NavLink to={"/codes/4021"}>Route 4021</NavLink></li>
+                            <li><NavLink to={"/codes/4022"}>Route 4022</NavLink></li>
+                            <li><NavLink to={"/codes/4023"}>Route 4023</NavLink></li>
+                            <li><NavLink to={"/codes/4024"}>Route 4024</NavLink></li>
+                            <li><NavLink to={"/codes/4025"}>Route 4025</NavLink></li>
+                            <li><NavLink to={"/codes/4026"}>Route 4026</NavLink></li>
+                            <li><NavLink to={"/codes/4027"}>Route 4027</NavLink></li>
+                            <li><NavLink to={"/codes/4029"}>Route 4029</NavLink></li>
+                            <li><NavLink to={"/codes/4030"}>Route 4030</NavLink></li>
+                            <li><NavLink to={"/codes/4031"}>Route 4031</NavLink></li>
+                            <li><NavLink to={"/codes/4032"}>Route 4032</NavLink></li>
+                            <li><NavLink to={"/codes/4033"}>Route 4033</NavLink></li>
+                            <li><NavLink to={"/codes/4034"}>Route 4034</NavLink></li>
+                            <li><NavLink to={"/codes/4037"}>Route 4037</NavLink></li>
+                            <li><NavLink to={"/codes/4038"}>Route 4038</NavLink></li>
+                            <li><NavLink to={"/codes/4040"}>Route 4040</NavLink></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Route Splits</h2>
+                        <ul>
+                            <li><NavLink to={"/splits/4017"}>Route 4017</NavLink></li>
+                            <li><NavLink to={"/splits/4019"}>Route 4019</NavLink></li>
+                            <li><NavLink to={"/splits/4020"}>Route 4020</NavLink></li>
+                            <li><NavLink to={"/splits/4021"}>Route 4021</NavLink></li>
+                            <li><NavLink to={"/splits/4022"}>Route 4022</NavLink></li>
+                            <li><NavLink to={"/splits/4023"}>Route 4023</NavLink></li>
+                            <li><NavLink to={"/splits/4024"}>Route 4024</NavLink></li>
+                            <li><NavLink to={"/splits/4025"}>Route 4025</NavLink></li>
+                            <li><NavLink to={"/splits/4026"}>Route 4026</NavLink></li>
+                            <li><NavLink to={"/splits/4027"}>Route 4027</NavLink></li>
+                            <li><NavLink to={"/splits/4029"}>Route 4029</NavLink></li>
+                            <li><NavLink to={"/splits/4030"}>Route 4030</NavLink></li>
+                            <li><NavLink to={"/splits/4031"}>Route 4031</NavLink></li>
+                            <li><NavLink to={"/splits/4032"}>Route 4032</NavLink></li>
+                            <li><NavLink to={"/splits/4033"}>Route 4033</NavLink></li>
+                            <li><NavLink to={"/splits/4034"}>Route 4034</NavLink></li>
+                            <li><NavLink to={"/splits/4037"}>Route 4037</NavLink></li>
+                            <li><NavLink to={"/splits/4038"}>Route 4038</NavLink></li>
+                            <li><NavLink to={"/splits/4040"}>Route 4040</NavLink></li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+    } else {
+        contentToRender =
+            <>
+                <div className={"main"}>
+                    <MapAddress address={searchResults}/>
+                </div>
+            </>
     }
-
-    function handleSearchButton(event) {
-        // Prevent reloading page when button clicked
-        event.preventDefault();
-        // AWS backend url
-        let getUrl = `${import.meta.env.VITE_API_URL}/results`;
-
-        const trimAddress = addressSearch.trim();
-        const address = trimAddress.toLowerCase();
-        const splitAddress = address.split(" ");
-
-        if(!isNaN(splitAddress[0])) {
-            const streetNumber = splitAddress[0];
-            const streetName = splitAddress.slice(1).join(" ");
-            //Build full url
-            getUrl = `${import.meta.env.VITE_API_URL}/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
-        }
-        else if(isNaN(splitAddress[0])) {
-            const neighborhood = splitAddress[0];
-            getUrl = `${import.meta.env.VITE_API_URL}/results?neighborhood=${encodeURIComponent(neighborhood)}`;
-        }
-
-        //Create object request
-        const requestObj = {
-            method: "GET"
-        }
-        //send request using fetch
-        fetch(getUrl, requestObj)
-            .then(response => {
-                if(!response.ok) {
-                    throw new Error(`Network response error: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                setRenderSearch(data);
-            })
-            .catch(error => {
-                throw new Error(`There was a problem with the fetch request: ${error.status}`);
-            })
-    }
-
-    const contentToRender =
-        <>
-            <div>
-                <MapAddress address={renderSearch} />
-            </div>
-        </>
 
     function MapAddress({address}) {
 
@@ -71,7 +116,7 @@ export default function Home() {
                         </ul>
                     </div>
 
-                ) : (<p style={{color: "black"}}>No address found</p>)
+                ) : (<p>No address found</p>)
                 }
             </>
 
@@ -93,19 +138,9 @@ export default function Home() {
         )
     }
 
-
     return (
         <main>
-            <div>
-                <form className={"search-bar"} onSubmit={handleSearchButton}>
-                    <input className={"search"} type={"text"} placeholder={"Search Address..."}
-                           onChange={handleQuery}></input>
-                    <button className={"btn-search"} type={"submit"}>Go</button>
-                </form>
-            </div>
-            <div>
-                {contentToRender}
-            </div>
+            {contentToRender}
         </main>
     )
 }
