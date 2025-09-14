@@ -14,7 +14,7 @@ export default function Home() {
         // Prevent reloading page when button clicked
         event.preventDefault();
         // AWS backend url
-        let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
+        let getUrl = `${import.meta.env.VITE_API_URL}/results`;
 
         const trimAddress = addressSearch.trim();
         const address = trimAddress.toLowerCase();
@@ -24,11 +24,11 @@ export default function Home() {
             const streetNumber = splitAddress[0];
             const streetName = splitAddress.slice(1).join(" ");
             //Build full url
-            getUrl = `${import.meta.env.VITE_API_URL}/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
+            getUrl = `${import.meta.env.VITE_API_URL}/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
         }
         else if(isNaN(splitAddress[0])) {
             const neighborhood = splitAddress[0];
-            getUrl = `${import.meta.env.VITE_API_URL}/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
+            getUrl = `${import.meta.env.VITE_API_URL}/results?neighborhood=${encodeURIComponent(neighborhood)}`;
         }
 
         //Create object request
@@ -71,7 +71,7 @@ export default function Home() {
                         </ul>
                     </div>
 
-                ) : (<p>No address found</p>)
+                ) : (<p style={{color: "black"}}>No address found</p>)
                 }
             </>
 
