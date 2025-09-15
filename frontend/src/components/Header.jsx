@@ -13,7 +13,7 @@ export default function Header() {
 
     function handleWeather() {
 
-        const getUrl = `http://localhost:8080/api/weather`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/weather`;
 
         const weatherObj = {
             method: "GET"
