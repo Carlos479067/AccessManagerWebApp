@@ -112,7 +112,7 @@ button:focus-visible {
 
 #headerContent {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
@@ -542,6 +542,16 @@ main a:hover {
   gap: 2px 200px;
   justify-items: start;
   padding-left: 30px;
+}
+
+.weatherContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.weatherContainer h4, p {
+  margin: 0;
 }
 
 /* ----------------------Form-Page-End-----------------------------*/
