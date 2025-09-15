@@ -56,24 +56,7 @@ export default function Navbar({updateState, resetState}) {
             <div className={"navContainer"}>
                 <ul>
                     <li><NavLink to={"/"} onClick={resetState}><h3>Home</h3></NavLink></li>
-                    <li><NavLink to={"/forms"}><h3>Forms</h3></NavLink></li>
-                    {/*<li className={"dropdown"}>*/}
-                    {/*    <a><h3>Route Codes & Splits</h3></a>*/}
-                    {/*    <ul className={"dropdown-content"}>*/}
-                    {/*        <li><a>4925</a></li>*/}
-                    {/*        <li><a>4929</a></li>*/}
-                    {/*        <li><a>4930</a></li>*/}
-                    {/*        <li><a>4933</a></li>*/}
-                    {/*        <li><a>4934</a></li>*/}
-                    {/*        <li><a>4935</a></li>*/}
-                    {/*        <li><a>4937</a></li>*/}
-                    {/*        <li><a>4938</a></li>*/}
-                    {/*        <li><a>4942</a></li>*/}
-                    {/*        <li><a>4948</a></li>*/}
-                    {/*        <li><a>4952</a></li>*/}
-                    {/*        <li><a>4954</a></li>*/}
-                    {/*    </ul>*/}
-                    {/*</li>*/}
+                    <li id={"formLink"}><NavLink to={"/forms"}><h3>Forms</h3></NavLink></li>
                 </ul>
                 <div>
                     <form className={"search-bar"} onSubmit={handleSearchButton}>

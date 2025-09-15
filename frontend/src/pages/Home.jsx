@@ -9,7 +9,8 @@ export default function Home ({searchResults}) {
             <>
                 <div id={"main"}>
                     <div>
-                        <h2>Route Codes</h2>
+                        <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
+                        <h2>78249</h2>
                         <ul>
                             <li><NavLink to={"/codes/4925"}>Route 4925</NavLink></li>
                             <li><NavLink to={"/codes/4929"}>Route 4929</NavLink></li>
@@ -26,8 +27,9 @@ export default function Home ({searchResults}) {
                             <li><NavLink to={"/codes/4954"}>Route 4954</NavLink></li>
                         </ul>
                     </div>
-                    <div>
-                        <h2>Route Splits</h2>
+                    <div id={"firstSplitBlock"}>
+                        <h2 style={{textDecoration: "underline"}}>Route Splits</h2>
+                        <h2>78249</h2>
                         <ul>
                             <li><NavLink to={"/splits/4925"}>Route 4925</NavLink></li>
                             <li><NavLink to={"/splits/4929"}>Route 4929</NavLink></li>
@@ -45,7 +47,8 @@ export default function Home ({searchResults}) {
                         </ul>
                     </div>
                     <div>
-                        <h2>Route Codes</h2>
+                        <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
+                        <h2>78240</h2>
                         <ul>
                             <li><NavLink to={"/codes/4017"}>Route 4017</NavLink></li>
                             <li><NavLink to={"/codes/4019"}>Route 4019</NavLink></li>
@@ -68,8 +71,9 @@ export default function Home ({searchResults}) {
                             <li><NavLink to={"/codes/4040"}>Route 4040</NavLink></li>
                         </ul>
                     </div>
-                    <div>
-                        <h2>Route Splits</h2>
+                    <div id={"secondSplitBlock"}>
+                        <h2 style={{textDecoration: "underline"}}>Route Splits</h2>
+                        <h2>78240</h2>
                         <ul>
                             <li><NavLink to={"/splits/4017"}>Route 4017</NavLink></li>
                             <li><NavLink to={"/splits/4019"}>Route 4019</NavLink></li>

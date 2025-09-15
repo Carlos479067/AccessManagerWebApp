@@ -6,7 +6,6 @@ export default function Header() {
         <header id={"header"}>
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"} />
-                <h3>Welcome</h3>
             </div>
         </header>
     )

@@ -620,12 +620,32 @@ main a:hover {
 
 @media (max-width: 600px) {
 
-  .search {
-    width: 100px;
+  #main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding-bottom: 50px;
+    width: 100%;
   }
 
-  #header h3 {
-    padding-right: 45px;
+  #firstSplitBlock {
+    display: none;
+  }
+
+  #secondSplitBlock {
+    display: none;
+  }
+
+  .search {
+    width: 150px;
+  }
+
+  .btn-search {
+    margin-right: 10px;
+  }
+
+  #formLink {
+    display: none;
   }
 
   #headerContent {
@@ -635,10 +655,6 @@ main a:hover {
 
   #headerImage {
     width: 100px; /* smaller image if needed */
-    margin-right: 50px;
-  }
-
-  #vacationFormImg {
-    width: 350px;
+    /*margin-right: 50px;*/
   }
 }
