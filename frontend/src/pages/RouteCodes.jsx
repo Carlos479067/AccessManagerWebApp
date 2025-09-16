@@ -8,7 +8,7 @@ export default function RouteCodes() {
     const {routeNumber} = useParams();
 
     function handleAddresses() {
-        const getUrl = `http://localhost:8080/api/codes/${routeNumber}`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/codes/${routeNumber}`;
 
         const addressObj = {
             method: "GET"
