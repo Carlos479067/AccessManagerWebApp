@@ -33,7 +33,7 @@ export default function RouteCodes() {
         return (
             <li>
                 <div className={"container"}>
-                    {addressObj.streetNumber ? <h2>{addressObj.streetNumber ? addressObj.streetNumber : ""} {addressObj.streetNumber ? addressObj.streetName : ""} {addressObj.streetNumber ? addressObj.cityName : ""} {addressObj.streetNumber ? addressObj.zipCode : ""}</h2> : ""}
+                    {addressObj.streetNumber ? <p style={{fontWeight: "bold", fontSize: "28px"}}>{addressObj.streetNumber ? addressObj.streetNumber : ""} {addressObj.streetNumber ? addressObj.streetName : ""} {addressObj.streetNumber ? addressObj.cityName : ""} {addressObj.streetNumber ? addressObj.zipCode : ""}</p> : ""}
                     {addressObj.neighborhood ? <h2>{addressObj.neighborhood ? "Neighborhood: " : ""}{addressObj.neighborhood}</h2> : ""}
                     {addressObj.gateCode ? <h3>{addressObj.gateCode ? "Gate Code: " : ""}{addressObj.gateCode}</h3> : ""}
                     {addressObj.mailRoomCode ? <h3>{addressObj.mailRoomCode ? "Mailroom Code: " : ""}{addressObj.mailRoomCode}</h3> : ""}
