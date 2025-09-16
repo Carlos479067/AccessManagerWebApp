@@ -550,8 +550,20 @@ main a:hover {
   padding-bottom: 20px;
 }
 
+#weatherIcon {
+  display: flex;
+  flex-direction: row;
+  width: 60px;
+}
+
 .weatherContainer h4, p {
   margin: 0;
+}
+
+#weatherWrapper {
+  display: flex;
+  align-items: center; /* keeps icon aligned with middle of text */
+  gap: 0.5rem; /* small space between text and icon */
 }
 
 /* ----------------------Form-Page-End-----------------------------*/

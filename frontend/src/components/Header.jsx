@@ -1,4 +1,5 @@
 import Logo from "../assets/eagle.png";
+import clearSkyNight from "../assets/01n.png";
 import {useEffect, useState} from "react";
 
 export default function Header() {
@@ -6,8 +7,27 @@ export default function Header() {
     const [weatherImage, setWeatherImage] = useState("");
     const [weather, setWeather] = useState(null);
 
+    const icons = {
+        clearSkyDay: "01d",
+        "01n": clearSkyNight,
+        fewCloudsDay: "02d",
+        fewCloudsNight: "02n",
+        scatteredCloudsDay: "03d",
+        scatteredCloudsNight: "03n",
+        overCastDay: "04d",
+        overCastNight: "04n",
+        rainShowerDay: "09d",
+        rainShowerNight: "09n",
+        rainDay: "10d",
+        rainNight: "10n",
+        thunderstormDay: "11d",
+        thunderStormNight: "11n",
+        mistFogDay: "50d",
+        mistFogNight: "50n"
+    }
+
     function handleWeatherImg(data) {
-        console.log("Weather icon:", data.weather[0].icon);
+        // 01n
         setWeatherImage(data.weather[0].icon);
     }
 
@@ -45,11 +65,14 @@ export default function Header() {
         <header id={"header"}>
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"}/>
-                <img src={`http://openweathermap.org/img/wn/${weatherImage}@2x.png`} alt={"Weather Image"}/>
-                <div className={"weatherContainer"}>
-                    <h4>{weather && weather.name}</h4>
-                    <h4>Temperature: {weather && weather.main.temp}</h4>
-                    <h4>Humidity: {weather && weather.main.humidity}</h4>
+                <div id={"weatherWrapper"}>
+                    <div className={"weatherContainer"}>
+                        <p>{weather && weather.name}</p>
+                        <p>Temperature: {weather && weather.main.temp}</p>
+                        <p>Humidity: {weather && weather.main.humidity}</p>
+                    </div>
+                    <img id={"weatherIcon"} src={icons[weatherImage]}
+                         alt={"Weather Image"}/>
                 </div>
             </div>
         </header>
