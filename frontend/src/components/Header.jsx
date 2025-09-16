@@ -1,5 +1,20 @@
 import Logo from "../assets/eagle.png";
+import clearSkyDay from "../assets/01n.png";
 import clearSkyNight from "../assets/01n.png";
+import fewCloudsDay from "../assets/02d.png";
+import scatteredCloudsDay from "../assets/02d.png";
+import fewCloudsNight from "../assets/02n.png";
+import scatteredCloudsNight from "../assets/02n.png";
+import overCastDay from "../assets/04d.png";
+import overCastNight from "../assets/04d.png";
+import rainShowerDay from "../assets/09d.png";
+import rainShowerNight from "../assets/09n.png";
+import rainDay from "../assets/09d.png";
+import rainNight from "../assets/09n.png";
+import thunderstormDay from "../assets/11d.png";
+import thunderStormNight from "../assets/11n.png";
+import mistFogDay from "../assets/50d.png";
+import mistFogNight from "../assets/50d.png";
 import {useEffect, useState} from "react";
 
 export default function Header() {
@@ -8,22 +23,22 @@ export default function Header() {
     const [weather, setWeather] = useState(null);
 
     const icons = {
-        clearSkyDay: "01d",
+        "01d": clearSkyDay,
         "01n": clearSkyNight,
-        fewCloudsDay: "02d",
-        fewCloudsNight: "02n",
-        scatteredCloudsDay: "03d",
-        scatteredCloudsNight: "03n",
-        overCastDay: "04d",
-        overCastNight: "04n",
-        rainShowerDay: "09d",
-        rainShowerNight: "09n",
-        rainDay: "10d",
-        rainNight: "10n",
-        thunderstormDay: "11d",
-        thunderStormNight: "11n",
-        mistFogDay: "50d",
-        mistFogNight: "50n"
+        "02d": fewCloudsDay,
+        "02n": fewCloudsNight,
+        "03d": scatteredCloudsDay,
+        "03n": scatteredCloudsNight,
+        "04d": overCastDay,
+        "04n": overCastNight,
+        "09d": rainShowerDay,
+        "09n": rainShowerNight,
+        "10d": rainDay,
+        "10n": rainNight,
+        "11d": thunderstormDay,
+        "11n": thunderStormNight,
+        "50d": mistFogDay,
+        "50n": mistFogNight
     }
 
     function handleWeatherImg(data) {
