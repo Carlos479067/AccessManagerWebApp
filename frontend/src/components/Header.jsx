@@ -1,5 +1,5 @@
 import Logo from "../assets/eagle.png";
-import clearSkyDay from "../assets/01n.png";
+import clearSkyDay from "../assets/01d.png";
 import clearSkyNight from "../assets/01n.png";
 import fewCloudsDay from "../assets/02d.png";
 import scatteredCloudsDay from "../assets/02d.png";
