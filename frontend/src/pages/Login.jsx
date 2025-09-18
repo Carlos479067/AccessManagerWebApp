@@ -19,7 +19,7 @@ export default function Login({setLoggedInUser}) {
 
         const cleanEin = inputEin.trim();
 
-        const getUrl = `http://localhost:8080/api/login`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/login`;
 
         const loginObj = {
             method: "POST",
