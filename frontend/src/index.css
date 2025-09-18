@@ -112,27 +112,72 @@ button:focus-visible {
 
 #headerContent {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
   justify-content: space-between;
 }
 
-#headerLogout {
-  width: 36px;
+#weatherLogoutContainer {
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
+  align-items: center;
 }
 
 #logoutContainer {
   display: flex;
-  align-items: center;
-  cursor: pointer;
-  /*padding-bottom: 60px;*/
+  flex-direction: row;
 }
 
+#desktopLogoutText {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#DesktopLogoutImage {
+  height: 20px;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+#mobileHeaderLogout {
+  display: none;
+  width: 18px;
+  cursor: pointer;
+}
+
+#mobileLogoutText
+{
+  display: flex;
+  cursor: pointer;
+}
 #headerImage {
   width: 110px;
+}
+
+.weatherContainer {
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+}
+
+#weatherIcon {
+  display: flex;
+  flex-direction: row;
+  width: 45px;
+  padding-right: 5px;
+}
+
+.weatherContainer h4, p {
+  margin: 0;
+}
+
+#weatherWrapper {
+  display: flex;
+  align-items: center; /* keeps icon aligned with middle of text */
+  gap: 0.5rem; /* small space between text and icon */
 }
 
 #topFooter {
@@ -149,6 +194,58 @@ button:focus-visible {
 }
 
 /* ----------------------------------------------------------------*/
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loginDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginLabel {
+  width: 6em;
+  font-size: 20px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.loginInput {
+  background-color: white;
+  padding: 3px 0;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  text-align: start;
+  width: 150px;
+}
+
+.loginBtn {
+  margin-top: 2em;
+  padding: 2px 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.loginBtn:hover {
+  border-color: #646cff;
+}
+
+.errorMsg {
+  color: red;
+
+}
+
+.successMsg {
+  color: green;
+}
+
+/* ----------------------------------------------------------------*/
+
 .navbar {
   display: flex;
   background-color: cornflowerblue;
@@ -295,7 +392,7 @@ main a:hover {
 }
 
 .loginLabel {
-  width: 6em;
+  width: 2.5em;
   font-size: 20px;
   font-family: 'Libre Baskerville', serif;
 }
@@ -307,7 +404,8 @@ main a:hover {
   border-radius: 5px;
   color: black;
   text-align: start;
-  width: 150px;
+  width: 160px;
+  align-items: center;
 }
 
 .loginBtn {
@@ -325,11 +423,7 @@ main a:hover {
 
 .loginContainer {
   display: flex;
-  justify-content: center;
-}
-
-#signUpLink {
-  margin-top: 2em;
+  flex-direction: column;
 }
 
 .errorMsg {
@@ -544,28 +638,6 @@ main a:hover {
   padding-left: 30px;
 }
 
-.weatherContainer {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-}
-
-#weatherIcon {
-  display: flex;
-  flex-direction: row;
-  width: 60px;
-}
-
-.weatherContainer h4, p {
-  margin: 0;
-}
-
-#weatherWrapper {
-  display: flex;
-  align-items: center; /* keeps icon aligned with middle of text */
-  gap: 0.5rem; /* small space between text and icon */
-}
-
 /* ----------------------Form-Page-End-----------------------------*/
 
 @media print {
@@ -648,6 +720,31 @@ main a:hover {
     gap: 50px;
     padding-bottom: 50px;
     width: 100%;
+  }
+
+  #welcomeText {
+    display: none;
+  }
+
+  #weatherIcon {
+    display: flex;
+    width: 40px;
+  }
+
+  #mobileHeaderLogout {
+    margin-left: auto;
+  }
+
+  #DesktopHeaderLogout {
+    display: none;
+  }
+
+  #headerImageLogout {
+    display: flex;
+  }
+
+  #desktopLogoutText {
+    font-size: 14px;
   }
 
   #firstSplitBlock {

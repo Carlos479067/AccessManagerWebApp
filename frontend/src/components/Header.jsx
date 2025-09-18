@@ -15,12 +15,16 @@ import thunderstormDay from "../assets/11d.png";
 import thunderStormNight from "../assets/11n.png";
 import mistFogDay from "../assets/50d.png";
 import mistFogNight from "../assets/50d.png";
+import logoutImg from "../assets/logout.png";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
-export default function Header() {
+export default function Header({setLoggedInUser, loggedInUser}) {
 
     const [weatherImage, setWeatherImage] = useState("");
     const [weather, setWeather] = useState(null);
+
+    const navigate = useNavigate();
 
     const icons = {
         "01d": clearSkyDay,
@@ -39,6 +43,12 @@ export default function Header() {
         "11n": thunderStormNight,
         "50d": mistFogDay,
         "50n": mistFogNight
+    }
+
+    function DesktopLogout() {
+        setLoggedInUser(null);
+        localStorage.removeItem("loggedInUser");
+        navigate("/");
     }
 
     function handleWeatherImg(data) {
@@ -80,14 +90,22 @@ export default function Header() {
         <header id={"header"}>
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"}/>
+                {loggedInUser ? <h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}</h3> : ""}
                 <div id={"weatherWrapper"}>
                     <div className={"weatherContainer"}>
                         <p>{weather && weather.name}</p>
                         <p>Temperature: {weather && weather.main.temp}</p>
                         <p>Humidity: {weather && weather.main.humidity}</p>
                     </div>
-                    <img id={"weatherIcon"} src={icons[weatherImage]}
-                         alt={"Weather Image"}/>
+                    <div id={"weatherLogoutContainer"}>
+                        <img id={"weatherIcon"} src={icons[weatherImage]}
+                             alt={"Weather Image"}/>
+                        <div id={"logoutContainer"}>
+                            {loggedInUser ? <img id={"mobileHeaderLogout"} src={logoutImg} alt={"logout"} onClick={DesktopLogout}/> : ""}
+                            {loggedInUser ? <img id={"DesktopLogoutImage"} src={logoutImg} alt={"logout"} onClick={DesktopLogout}/> : ""}
+                            {loggedInUser ? <p id={"desktopLogoutText"} onClick={DesktopLogout}>Logout</p> : ""}
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
