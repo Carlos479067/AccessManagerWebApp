@@ -88,7 +88,7 @@ export default function RouteCodes({searchResults}) {
         return (
             <li>
                 <div className={"searchContainer"}>
-                    {addressSearchObj.streetNumber ? <h2>{addressSearchObj.streetNumber ? addressSearchObj.streetNumber : ""} {addressSearchObj.streetNumber ? addressSearchObj.streetName : ""}, {addressSearchObj.streetNumber ? addressSearchObj.cityName : ""}, {addressSearchObj.streetNumber ? addressSearchObj.zipCode : ""}</h2> : ""}
+                    {addressSearchObj.streetNumber ? <h2>{addressSearchObj.streetNumber ? addressSearchObj.streetNumber : ""} {addressSearchObj.streetNumber ? addressSearchObj.streetName : ""}</h2> : ""}
                     <h2>Route: {addressSearchObj.routeNumber}</h2>
                     {addressSearchObj.neighborhood ? <h3>{addressSearchObj.neighborhood ? "Neighborhood: " : ""}{addressSearchObj.neighborhood}</h3> : ""}
                     {addressSearchObj.gateCode ? ( addressSearchObj.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={addressSearchObj.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3>) : ""}
