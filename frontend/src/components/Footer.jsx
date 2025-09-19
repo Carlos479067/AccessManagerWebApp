@@ -4,9 +4,7 @@ export default function Footer () {
 
     return (
         <footer>
-            <div id={"topFooter"}>
-                <p style={{color: "black", alignItems: "center"}}>This Weather Sucks</p>
-            </div>
+            <div id={"topFooter"}></div>
             <div id={"lowFooter"}>
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <img style={{width: "20px"}} src={copyRightLogo} alt={"copy right logo"}/>
