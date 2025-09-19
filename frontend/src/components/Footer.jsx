@@ -1,12 +1,14 @@
+import copyRightLogo from "../assets/copyRight.png";
+
 export default function Footer () {
 
     return (
         <footer>
             <div id={"topFooter"}>
-                <h3 style={{display: "flex",  color: "black", alignItems: "center"}}>This Weather Sucks</h3>
+                <p style={{color: "black", alignItems: "center"}}>This Weather Sucks</p>
             </div>
             <div id={"lowFooter"}>
-                <p>Copyright: Monster Route 34</p>
+                <img style={{width: "20px"}} src={copyRightLogo} alt={"copy right logo"}/>
             </div>
         </footer>
     )
