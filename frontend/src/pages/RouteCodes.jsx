@@ -74,7 +74,8 @@ export default function RouteCodes({searchResults}) {
         return (
             <li>
                 <div className={"container"}>
-                    {addressMainObj.streetNumber ? <h2>{addressMainObj.streetNumber ? addressMainObj.streetNumber : ""} {addressMainObj.streetNumber ? addressMainObj.streetName : ""} {addressMainObj.streetNumber ? addressMainObj.cityName : ""} {addressMainObj.streetNumber ? addressMainObj.zipCode : ""}</h2> : ""}
+                    {addressMainObj.streetNumber ? <h2>{addressMainObj.streetNumber ? addressMainObj.streetNumber : ""} {addressMainObj.streetNumber ? addressMainObj.streetName : ""}</h2> : ""}
+                    {addressMainObj.streetNumber ? <h2>{addressMainObj.streetNumber ? addressMainObj.cityName : ""} {addressMainObj.streetNumber ? addressMainObj.zipCode : ""}</h2> : ""}
                     {addressMainObj.neighborhood ? <h2>{addressMainObj.neighborhood ? "Neighborhood: " : ""}{addressMainObj.neighborhood}</h2> : ""}
                     {addressMainObj.gateCode ? ( addressMainObj.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={addressMainObj.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressMainObj.gateCode ? "Gate Code: " : ""}{addressMainObj.gateCode}</h3>) : ""}
                     {addressMainObj.mailRoomCode ? <h3>{addressMainObj.mailRoomCode ? "Mailroom Code: " : ""}{addressMainObj.mailRoomCode}</h3> : ""}
@@ -91,7 +92,7 @@ export default function RouteCodes({searchResults}) {
                     {addressSearchObj.streetNumber ? <h2>{addressSearchObj.streetNumber ? addressSearchObj.streetNumber : ""} {addressSearchObj.streetNumber ? addressSearchObj.streetName : ""} {addressSearchObj.streetNumber ? addressSearchObj.cityName : ""} {addressSearchObj.streetNumber ? addressSearchObj.zipCode : ""}</h2> : ""}
                     <h2>Route: {addressSearchObj.routeNumber}</h2>
                     {addressSearchObj.neighborhood ? <h3>{addressSearchObj.neighborhood ? "Neighborhood: " : ""}{addressSearchObj.neighborhood}</h3> : ""}
-                    {addressSearchObj.gateCode ? <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3> : ""}
+                    {addressSearchObj.gateCode ? ( addressSearchObj.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={addressSearchObj.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3>) : ""}
                     {addressSearchObj.mailRoomCode ? <h3>{addressSearchObj.mailRoomCode ? "Mailroom Code: " : ""}{addressSearchObj.mailRoomCode}</h3> : ""}
                     {addressSearchObj.locker_code ? <h3>{addressSearchObj.locker_code ? "Locker Room Code: " : ""}{addressSearchObj.locker_code}</h3> : ""}
                 </div>
