@@ -9,5 +9,5 @@ The navbar features a search function, where the user can search by address or n
 
 <img width="800" height="700" alt="{EC4CA89F-6A1C-4BDA-ADA5-9E0CDE20EA99}" src="https://github.com/user-attachments/assets/01fa7226-5911-4927-abd9-42dbd94170c0" />
 
-<img width="1463" height="1300" alt="Image" src="https://github.com/user-attachments/assets/d5c727b6-ff0f-4b99-a748-e46355da50a6" />
+<img width="800" height="700" alt="Image" src="https://github.com/user-attachments/assets/d5c727b6-ff0f-4b99-a748-e46355da50a6" />
 
