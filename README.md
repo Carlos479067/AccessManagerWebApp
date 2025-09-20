@@ -15,6 +15,7 @@ The navbar features a search function, where the user can search by address or n
 <ul>
   <li>Spring Boot</li>
   <li>React</li>
+  <li>Java</li>
   <li>Javascript</li>
   <li>HTML/CSS</li>
   <li>Nginx</li>
