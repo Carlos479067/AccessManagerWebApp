@@ -11,3 +11,14 @@ The navbar features a search function, where the user can search by address or n
 <h3>Example of a certain routes codes page.</h3>
 <img width="800" height="700" alt="Image" src="https://github.com/user-attachments/assets/d5c727b6-ff0f-4b99-a748-e46355da50a6" />
 
+<h1>Tech Stack</h1>
+<ul>
+  <li>Spring Boot</li>
+  <li>React</li>
+  <li>Javascript</li>
+  <li>HTML/CSS</li>
+  <li>Nginx</li>
+  <li>Amazon RDS</li>
+  <li>AWS(EC2)</li>
+</ul>
+
