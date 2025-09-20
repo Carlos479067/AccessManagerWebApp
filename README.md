@@ -6,4 +6,4 @@
 <p>This web application features a simple and straight forward home interface, which shows routes labeled and organized by zip code.
 The header features updated weather statistics from openWeatherAPI to display the temperature to the carrier.
 The navbar features a search function, where the user can search by address or neighborhood name for quick lookups.</p>
-![Homepage Screenshot](https://raw.githubusercontent.com/Carlos479067/AccessManagerWebApp/master/frontend/src/homeScreen.jpg)
+![Homepage Screenshot](https://raw.githubusercontent.com/Carlos479067/AccessManagerWebApp/main/frontend/src/homeScreen.png)
