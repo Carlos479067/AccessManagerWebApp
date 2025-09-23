@@ -1,23 +1,16 @@
-package com.example.backend.model;
-import jakarta.persistence.*;
+package com.example.backend.dto;
+import com.example.backend.model.User;
 import java.time.LocalDateTime;
 
-@Entity
-public class RouteData {
+public class RouteDataDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @OneToOne
-    @JoinColumn(name = "authorized_ein", referencedColumnName = "authorizedEin")
-    private User authorizedEin;
-    private String routeNumber;
+    private String authorizedEin;
     private int dpsCount;
     private int flats;
     private int parcels;
     private int spurs;
     private int totalPackages;
-    // Get both date and time
+    private String routeNumber;
     private LocalDateTime clockInTime;
     private LocalDateTime clockToStreet;
     private LocalDateTime clockBackToOffice;
@@ -25,8 +18,7 @@ public class RouteData {
     private LocalDateTime estimatedOfficeTime;
     private LocalDateTime estimatedReturnTime;
 
-    public RouteData(Long id, LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, User authorizedEin, String routeNumber) {
-        this.id = id;
+    public RouteDataDto(LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, String authorizedEin, String routeNumber) {
         this.estimatedReturnTime = estimatedReturnTime;
         this.estimatedOfficeTime = estimatedOfficeTime;
         this.clockOutTime = clockOutTime;
@@ -42,24 +34,16 @@ public class RouteData {
         this.routeNumber = routeNumber;
     }
 
-    public RouteData() {
+    public RouteDataDto() {
 
     }
 
-    public String getRouteNumber() {
-        return routeNumber;
+    public String getAuthorizedEin() {
+        return authorizedEin;
     }
 
-    public void setRouteNumber(String routeNumber) {
-        this.routeNumber = routeNumber;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setAuthorizedEin(String authorizedEin) {
+        this.authorizedEin = authorizedEin;
     }
 
     public LocalDateTime getEstimatedReturnTime() {
@@ -148,13 +132,5 @@ public class RouteData {
 
     public void setDpsCount(int dpsCount) {
         this.dpsCount = dpsCount;
-    }
-
-    public User getAuthorizedEin() {
-        return authorizedEin;
-    }
-
-    public void setAuthorizedEin(User authorizedEin) {
-        this.authorizedEin = authorizedEin;
     }
 }
