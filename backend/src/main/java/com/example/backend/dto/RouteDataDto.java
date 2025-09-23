@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 public class RouteDataDto {
 
-    private String authorizedEin;
     private int dpsCount;
     private int flats;
     private int parcels;
@@ -18,7 +17,7 @@ public class RouteDataDto {
     private LocalDateTime estimatedOfficeTime;
     private LocalDateTime estimatedReturnTime;
 
-    public RouteDataDto(LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, String authorizedEin, String routeNumber) {
+    public RouteDataDto(LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, String routeNumber) {
         this.estimatedReturnTime = estimatedReturnTime;
         this.estimatedOfficeTime = estimatedOfficeTime;
         this.clockOutTime = clockOutTime;
@@ -30,20 +29,11 @@ public class RouteDataDto {
         this.parcels = parcels;
         this.flats = flats;
         this.dpsCount = dpsCount;
-        this.authorizedEin = authorizedEin;
         this.routeNumber = routeNumber;
     }
 
     public RouteDataDto() {
 
-    }
-
-    public String getAuthorizedEin() {
-        return authorizedEin;
-    }
-
-    public void setAuthorizedEin(String authorizedEin) {
-        this.authorizedEin = authorizedEin;
     }
 
     public LocalDateTime getEstimatedReturnTime() {

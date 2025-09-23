@@ -11,11 +11,13 @@ public class User {
     private String authorizedEin;
     private String firstName;
     private String lastName;
+    private String routeNumber;
 
-    public User(String authorizedEin, String firstName, String lastName) {
+    public User(String authorizedEin, String firstName, String lastName, String routeNumber) {
         this.authorizedEin = authorizedEin;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.routeNumber = routeNumber;
     }
 
     public User() {
@@ -44,5 +46,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getRouteNumber() {
+        return routeNumber;
+    }
+
+    public void setRouteNumber(String routeNumber) {
+        this.routeNumber = routeNumber;
     }
 }

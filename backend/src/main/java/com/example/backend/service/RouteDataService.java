@@ -16,11 +16,10 @@ public class RouteDataService {
     }
 
     public RouteDataDto getUserRouteInformation(String routeNumber) {
-        // Retrieve EIN from database
         RouteData routeData = routeDataRepository.findByRouteNumber(routeNumber);
-        //Check if userEin is in database
-        if(routeData == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "EIN not found");
+        if (routeData == null) {
+            // Throw 404 if no data found
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Route not found for number: " + routeNumber);
         }
         // Create dto object and map route data to it
         RouteDataDto dto = mapRouteData(routeData);
@@ -30,7 +29,6 @@ public class RouteDataService {
     public RouteDataDto mapRouteData(RouteData routeData) {
         RouteDataDto routeDataDto = new RouteDataDto();
 
-        routeDataDto.setAuthorizedEin(routeData.getAuthorizedEin().getAuthorizedEin());
         routeDataDto.setFlats(routeData.getFlats());
         routeDataDto.setParcels(routeData.getParcels());
         routeDataDto.setSpurs(routeData.getSpurs());

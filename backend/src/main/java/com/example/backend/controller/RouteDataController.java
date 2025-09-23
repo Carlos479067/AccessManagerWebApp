@@ -1,6 +1,5 @@
 package com.example.backend.controller;
 import com.example.backend.dto.RouteDataDto;
-import com.example.backend.model.User;
 import com.example.backend.service.RouteDataService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

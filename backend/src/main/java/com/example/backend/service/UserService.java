@@ -33,6 +33,7 @@ public class UserService {
         userDto.setAuthorizedEin(user.getAuthorizedEin());
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
+        userDto.setRouteNumber(user.getRouteNumber());
         return userDto;
     }
 }

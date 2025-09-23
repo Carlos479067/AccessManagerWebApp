@@ -1,17 +1,51 @@
-/*
-* For route data I want DPS, parcels total, flats, estimated time pull down, estimated return time,
-* clocked in, Time moved to street, Time returned to office, and clock out.
-*/
-/*
- Want dropdown menu with previous dates, Button to go to form to enter data.
- */
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 export default function RouteData() {
 
+    const [routeData, setRouteData] = useState(null);
+    const {routeNumber} = useParams();
+
+    function handleData() {
+
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/data/${routeNumber}`;
+
+        const routeObj = {
+            method: "GET"
+        }
+
+        fetch(getUrl, routeObj)
+            .then((response) => {
+                if(!response.ok) {
+                    throw new Error(`Network response error: ${response.status}`);
+                }
+
+                return response.json();
+            })
+            .then((data) => {
+                setRouteData(data);
+            })
+            .catch((error) => {
+            throw new Error(`There was a problem with the fetch request: ${error.message}`);
+        });
+    }
+
+    function RenderData({routeDataObj}) {
+        return (
+            <div>
+                <h3>{routeDataObj.spurs} : {routeDataObj.totalPackages}</h3>
+            </div>
+        )
+    }
+
+    useEffect(() => {
+        handleData()
+    }, []);
 
     return (
         <main>
-
+            <h3 style={{color: "black"}}>Hello</h3>
+            {routeData && <RenderData routeDataObj={routeData}/>}
         </main>
     )
 }

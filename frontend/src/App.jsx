@@ -42,7 +42,7 @@ function App() {
                     <Route path={"/home"} element={loggedInUser ? <Home searchResults={searchResults} loggedInUser={loggedInUser} /> : <Login setLoggedInUser={updateLoggedInUser} />}
                     />
                     <Route path={"/forms"} element={<Forms />}/>
-                    <Route path={"/data"} element={<RouteData />}/>
+                    <Route path={"/data/:routeNumber"} element={<RouteData />}/>
                     <Route path={"/codes/:routeNumber"} element={<RouteCodes searchResults={searchResults}/>}/>
                     <Route path={"/splits/:routeNumber"} element={<RouteSplits/>}/>
                 </Routes>

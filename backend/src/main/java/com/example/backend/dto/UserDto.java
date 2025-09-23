@@ -5,11 +5,13 @@ public class UserDto {
     private String authorizedEin;
     private String firstName;
     private String lastName;
+    private String routeNumber;
 
-    public UserDto(String authorizedEin, String firstName, String lastName) {
+    public UserDto(String authorizedEin, String firstName, String lastName, String routeNumber) {
         this.authorizedEin = authorizedEin;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.routeNumber = routeNumber;
     }
 
     public UserDto() {
@@ -38,5 +40,13 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getRouteNumber() {
+        return routeNumber;
+    }
+
+    public void setRouteNumber(String routeNumber) {
+        this.routeNumber = routeNumber;
     }
 }

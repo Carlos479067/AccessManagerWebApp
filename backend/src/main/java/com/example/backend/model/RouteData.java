@@ -8,9 +8,6 @@ public class RouteData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    @JoinColumn(name = "authorized_ein", referencedColumnName = "authorizedEin")
-    private User authorizedEin;
     private String routeNumber;
     private int dpsCount;
     private int flats;
@@ -25,7 +22,7 @@ public class RouteData {
     private LocalDateTime estimatedOfficeTime;
     private LocalDateTime estimatedReturnTime;
 
-    public RouteData(Long id, LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, User authorizedEin, String routeNumber) {
+    public RouteData(Long id, LocalDateTime estimatedReturnTime, LocalDateTime estimatedOfficeTime, LocalDateTime clockOutTime, LocalDateTime clockBackToOffice, LocalDateTime clockToStreet, LocalDateTime clockInTime, int totalPackages, int spurs, int parcels, int flats, int dpsCount, String routeNumber) {
         this.id = id;
         this.estimatedReturnTime = estimatedReturnTime;
         this.estimatedOfficeTime = estimatedOfficeTime;
@@ -38,7 +35,6 @@ public class RouteData {
         this.parcels = parcels;
         this.flats = flats;
         this.dpsCount = dpsCount;
-        this.authorizedEin = authorizedEin;
         this.routeNumber = routeNumber;
     }
 
@@ -150,11 +146,4 @@ public class RouteData {
         this.dpsCount = dpsCount;
     }
 
-    public User getAuthorizedEin() {
-        return authorizedEin;
-    }
-
-    public void setAuthorizedEin(User authorizedEin) {
-        this.authorizedEin = authorizedEin;
-    }
 }
