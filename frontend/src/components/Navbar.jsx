@@ -58,6 +58,7 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
                 <ul>
                     {loggedInUser ? <li><NavLink to={"/home"} onClick={resetState}><h3>Home</h3></NavLink></li> : ""}
                     {loggedInUser ? <li id={"formLink"}><NavLink to={"/forms"}><h3>Forms</h3></NavLink></li> : ""}
+                    {loggedInUser ? <li><NavLink to={"/data"}><h3>Route Data</h3></NavLink></li>: ""}
                 </ul>
                 <div>
                     <form className={"search-bar"} onSubmit={handleSearchButton}>

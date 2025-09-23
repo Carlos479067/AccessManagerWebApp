@@ -9,6 +9,7 @@ import RouteSplits from "./pages/RouteSplits.jsx";
 import {useState} from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Login from "./pages/Login.jsx";
+import RouteData from "./pages/RouteData.jsx";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
                     <Route path={"/home"} element={loggedInUser ? <Home searchResults={searchResults} loggedInUser={loggedInUser} /> : <Login setLoggedInUser={updateLoggedInUser} />}
                     />
                     <Route path={"/forms"} element={<Forms />}/>
+                    <Route path={"/data"} element={<RouteData />}/>
                     <Route path={"/codes/:routeNumber"} element={<RouteCodes searchResults={searchResults}/>}/>
                     <Route path={"/splits/:routeNumber"} element={<RouteSplits/>}/>
                 </Routes>
