@@ -722,6 +722,10 @@ main a:hover {
     width: 100%;
   }
 
+  #renderDataMain {
+    display: none;
+  }
+
   #welcomeText {
     display: none;
   }
