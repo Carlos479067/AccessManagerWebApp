@@ -6,4 +6,20 @@
 <p>This web application features a simple and straight forward home interface, which shows routes labeled and organized by zip code.
 The header features updated weather statistics from openWeatherAPI to display the temperature to the carrier.
 The navbar features a search function, where the user can search by address or neighborhood name for quick lookups.</p>
-![Homepage Screenshot](frontend/src/assets/homeScreen.jpg)
+
+<img width="800" height="700" alt="{EC4CA89F-6A1C-4BDA-ADA5-9E0CDE20EA99}" src="https://github.com/user-attachments/assets/01fa7226-5911-4927-abd9-42dbd94170c0" />
+<h3>Example of a certain routes codes page.</h3>
+<img width="800" height="700" alt="Image" src="https://github.com/user-attachments/assets/d5c727b6-ff0f-4b99-a748-e46355da50a6" />
+
+<h1>Tech Stack</h1>
+<ul>
+  <li>Spring Boot</li>
+  <li>React</li>
+  <li>Java</li>
+  <li>Javascript</li>
+  <li>HTML/CSS</li>
+  <li>Nginx</li>
+  <li>Amazon RDS</li>
+  <li>AWS(EC2)</li>
+</ul>
+
