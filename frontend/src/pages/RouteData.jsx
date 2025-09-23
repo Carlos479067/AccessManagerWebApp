@@ -43,7 +43,7 @@ export default function RouteData() {
     }, []);
 
     return (
-        <main id={"renderDataMain"}>
+        <main>
             <h3 style={{color: "black"}}>Hello</h3>
             {routeData && <RenderData routeDataObj={routeData}/>}
         </main>
