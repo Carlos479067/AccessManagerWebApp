@@ -33,7 +33,7 @@ export default function RouteData() {
     function RenderData({routeDataObj}) {
         return (
             <div>
-                <h3>{routeDataObj.spurs} : {routeDataObj.totalPackages}</h3>
+                <h3>{routeDataObj.clockInTime}</h3>
             </div>
         )
     }
@@ -44,7 +44,6 @@ export default function RouteData() {
 
     return (
         <main>
-            <h3 style={{color: "black"}}>Hello</h3>
             {routeData && <RenderData routeDataObj={routeData}/>}
         </main>
     )
