@@ -8,7 +8,7 @@ export default function Footer () {
             <div id={"lowFooter"}>
                 <div style={{display: "flex", justifyContent: "center"}}>
                     <img style={{width: "20px"}} src={copyRightLogo} alt={"copy right logo"}/>
-                    <p style={{color: "white", alignItems: "center", paddingLeft: "5px"}}>Monster Route 4934</p>
+                    <p style={{color: "white", alignItems: "center", paddingLeft: "5px"}}>C.H.M</p>
                 </div>
             </div>
         </footer>
