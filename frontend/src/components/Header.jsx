@@ -83,7 +83,7 @@ export default function Header({setLoggedInUser, loggedInUser}) {
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"}/>
                 {loggedInUser ? loggedInUser.authorizedEin === '04516108' ?
-                    <><h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}, Highlight Here {"->"}</h3><h3 style={{color: "#0A3161"}}>Im an Idiot</h3></> :
+                    <><h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}, Highlight Here {"->"}</h3><h3 style={{color: "#0A3161", marginRight: "20px"}}>Im an Idiot</h3></> :
                     <h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}</h3>
                  : ""}
                 <div id={"weatherWrapper"}>
