@@ -51,46 +51,39 @@ export default function Header({setLoggedInUser, loggedInUser}) {
         navigate("/");
     }
 
+    // Extract the weather icon value from the data
     function handleWeatherImg(data) {
-        // 01n
         setWeatherImage(data.weather[0].icon);
     }
 
-    function handleWeather() {
+    useEffect(() => {
+        async function fetchWeather() {
+            const getUrl = `http://localhost:8080/api/weather`;
+            const objWeather = {
+                method: "GET"
+            }
+            try{
+                const response = await fetch(getUrl, objWeather);
 
-        const getUrl = `${import.meta.env.VITE_API_URL}/api/weather`;
-
-        const weatherObj = {
-            method: "GET"
-        }
-
-        fetch(getUrl, weatherObj)
-            .then((response) => {
                 if(!response.ok) {
-                    throw new Error(`Network response error: ${response.status}`);
+                    throw new Error(`Network Error ${response.status}`);
                 }
-
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
+                const data = await response.json();
                 setWeather(data);
                 handleWeatherImg(data);
-            })
-            .catch((error) => {
-                throw new Error(`There was a problem with the fetch request: ${error.status}`);
-            });
-    }
-
-    useEffect(() => {
-        handleWeather()
+            } catch(error) {
+                throw new Error(`There was a problem with fetch request: ${error.message}`)
+            }
+        }
+        fetchWeather();
     }, []);
 
     return (
         <header id={"header"}>
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"}/>
-                {loggedInUser ? <h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}</h3> : ""}
+                {loggedInUser.authorizedEin === '04516108' ? <h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}</h3> : ""}
+                {/*{loggedInUser ? <h3 id={"welcomeText"} style={{margin: "25px"}}>Welcome {loggedInUser.firstName}</h3> : ""}*/}
                 <div id={"weatherWrapper"}>
                     <div className={"weatherContainer"}>
                         <p>{weather && weather.name}</p>
