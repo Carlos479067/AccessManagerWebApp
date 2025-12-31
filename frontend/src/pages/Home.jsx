@@ -8,10 +8,10 @@ export default function Home ({searchResults}) {
         contentToRender =
             // Grid layout
             <>
-                <h1>Route Codes</h1>
+                <h1 id={"homepageFontTitle"}>Route Codes</h1>
                 <div id={"main"}>
                     <div>
-                        <h2 id={"homePageTitle"}>78249</h2>
+                        <h2 className={"zipCodeFont"}>78249</h2>
                         <ul>
                             <li><NavLink to={"/codes/4925"}>Route 4925</NavLink></li>
                             <li><NavLink to={"/codes/4929"}>Route 4929</NavLink></li>
@@ -29,7 +29,7 @@ export default function Home ({searchResults}) {
                         </ul>
                     </div>
                     <div>
-                        <h2>78240</h2>
+                        <h2 className={"zipCodeFont"}>78240</h2>
                         <ul>
                             <li><NavLink to={"/codes/4017"}>Route 4017</NavLink></li>
                             <li><NavLink to={"/codes/4019"}>Route 4019</NavLink></li>

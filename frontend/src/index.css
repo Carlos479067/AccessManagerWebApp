@@ -100,8 +100,12 @@ button:focus-visible {
   width: 100%;
 }
 
-#homePageTitle {
+.zipCodeFont {
   text-decoration: underline;
+}
+
+#homepageFontTitle {
+  font-family: 'Libre Baskerville', serif;
 }
 /* -------------------HEADER------------------------------*/
 #header {
