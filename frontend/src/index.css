@@ -99,7 +99,11 @@ button:focus-visible {
   min-height: 100vh;
   width: 100%;
 }
-/* ----------------------------------------------------------------*/
+
+#homePageTitle {
+  text-decoration: underline;
+}
+/* -------------------HEADER------------------------------*/
 #header {
   color: white;
   display: flex;
@@ -118,6 +122,8 @@ button:focus-visible {
   margin: 0 auto;
   justify-content: space-between;
 }
+
+/* -----------------------------------------------------*/
 
 #weatherLogoutContainer {
   display: flex;
@@ -272,7 +278,7 @@ nav ul {
 
 nav a {
   margin: 0;
-  display: block;
+  display: flex;
   text-decoration: none;
   padding: 1px 25px;
   color: white;
@@ -365,13 +371,12 @@ main a {
 main a:hover {
   color: #0A3161;
 }
-/*controls content inside main body */
+/*controls main content on homepage */
 #main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
   padding-bottom: 50px;
-  width: 100%;
 }
 
 .appMain {
@@ -711,7 +716,7 @@ main a:hover {
   }
 
 }
-
+/*------------------MEDIA QUERY-------------------------------- */
 @media (max-width: 600px) {
 
   #main {
