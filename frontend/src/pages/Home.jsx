@@ -8,6 +8,7 @@ export default function Home ({searchResults}) {
         contentToRender =
             // Grid layout
                 <div id={"main"}>
+                    <h1>Route Codes</h1>
                     <div>
                         <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
                         <h2>78249</h2>
