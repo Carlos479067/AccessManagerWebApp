@@ -7,8 +7,8 @@ export default function Home ({searchResults}) {
     if(searchResults.length === 0) {
         contentToRender =
             // Grid layout
+            <> <h1>Route Codes</h1>
                 <div id={"main"}>
-                    <h1>Route Codes</h1>
                     <div>
                         <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
                         <h2>78249</h2>
@@ -29,7 +29,7 @@ export default function Home ({searchResults}) {
                         </ul>
                     </div>
                     <div>
-                    <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
+                        <h2 style={{textDecoration: "underline"}}>Route Codes</h2>
                         <h2>78240</h2>
                         <ul>
                             <li><NavLink to={"/codes/4017"}>Route 4017</NavLink></li>
@@ -54,6 +54,7 @@ export default function Home ({searchResults}) {
                         </ul>
                     </div>
                 </div>
+            </>
     } else {
         contentToRender =
             <>
