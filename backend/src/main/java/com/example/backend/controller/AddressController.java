@@ -1,6 +1,6 @@
 package com.example.backend.controller;
-
 import com.example.backend.dto.AddressDto;
+import com.example.backend.model.Address;
 import com.example.backend.service.AddressService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +29,10 @@ public class AddressController {
     @GetMapping("/splits/{routeNumber}")
     public List<AddressDto> splitResults(@PathVariable String routeNumber) {
         return addressService.routeResults(routeNumber);
+    }
+
+    @PostMapping("/addAddress")
+    public Address addAddress(@RequestBody AddressDto addressDto) {
+        return addressService.addAddress(addressDto);
     }
 }

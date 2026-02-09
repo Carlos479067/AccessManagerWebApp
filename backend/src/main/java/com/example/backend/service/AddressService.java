@@ -17,6 +17,28 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
+    public Address addAddress(AddressDto addressDto) {
+
+        Address address = new Address();
+
+        if(addressDto.getCityName() == null || addressDto.getZipCode() == null || addressDto.getRouteNumber() == null) {
+            throw new IllegalArgumentException("City name, Zip code, and Route number are required");
+        }
+
+        address.setStreetNumber(addressDto.getStreetNumber());
+        address.setStreetName(addressDto.getStreetName());
+        address.setCityName(addressDto.getCityName());
+        address.setZipCode(addressDto.getZipCode());
+        address.setGateCode(addressDto.getGateCode());
+        address.setLocker_code(addressDto.getLocker_code());
+        address.setMailRoomCode(addressDto.getMailRoomCode());
+        address.setNeighborhood(addressDto.getNeighborhood());
+        address.setRouteNumber(addressDto.getRouteNumber());
+
+        addressRepository.save(address);
+        return address;
+    }
+
     public List<AddressDto> routeResults(String route) {
         List<Address> addresses = addressRepository.findByRouteNumber(route);
         List<AddressDto> addressDto = new ArrayList<>();

@@ -203,6 +203,46 @@ button:focus-visible {
   width: 100vw;
 }
 
+/* ------------------Route Code Buttons-----------------------------*/
+
+#routeCodeButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.editCodeButton {
+  color: white;
+  background-color: peru;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  border: 1px solid black;
+  margin: 0 25px;
+}
+
+#addCodeForm {
+  display: flex;
+  justify-content: center;
+}
+
+#addCodeForm ul {
+  padding-top: 25px;
+}
+
+#addCodeForm li {
+  padding-top: 25px;
+}
+
+#addCodeForm input {
+  background-color: white;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#addCodeForm label {
+  font-size: 20px;
+
+}
+
 /* ----------------------------------------------------------------*/
 
 .loginContainer {
