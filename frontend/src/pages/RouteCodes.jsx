@@ -87,8 +87,8 @@ export default function RouteCodes({searchResults}) {
             if(!response.ok) {
                 throw new Error(`Network response error: ${response.status}`);
             }
-            const savedAddress = await response.json();
-            setAddresses([...addresses, savedAddress]);
+
+
         } catch (error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
