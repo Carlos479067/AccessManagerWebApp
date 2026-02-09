@@ -54,8 +54,7 @@ export default function RouteCodes({searchResults}) {
         contentToRender =
             <div>
                 <div id={"routeCodeButtons"}>
-                    <button className={"editCodeButton"} onClick={() => setButtonClicked(!buttonClicked)}>Add new code
-                    </button>
+                    <button className={"editCodeButton"} onSubmit={submitAddress} onClick={() => setButtonClicked(!buttonClicked)}>Add new code</button>
                     <button className={"editCodeButton"}>Remove code</button>
                 </div>
                 <form id={"addCodeForm"}>
@@ -91,44 +90,44 @@ export default function RouteCodes({searchResults}) {
             </div>
     }
 
-    // // async function submitAddress() {
-    // //
-    // //     const getUrl = `http://localhost:8080/api/addAddress`;
-    // //
-    // //     const addressObj = {
-    // //         method: "POST",
-    // //         headers: {"Content-Type": "application/json"},
-    // //         body: JSON.stringify({
-    // //             streetNumber: streetNumber,
-    // //             streetName: streetName,
-    // //             cityName: cityName,
-    // //             zipCode: zipCode,
-    // //             gateCode: gateCode,
-    // //             mailRoomCode: mailRoomCode,
-    // //             lockerCode: lockerCode,
-    // //             routeNumber: routeNumber,
-    // //             neighborhood: neighborhood
-    // //         })
-    // //     }
-    // //     try {
-    // //         const response = await fetch(getUrl, addressObj);
-    // //
-    // //         if (!response.ok) {
-    // //             throw new Error(`Network response error: ${response.status}`);
-    // //         }
-    // //         const savedAddress = await response.json();
-    // //         setAddresses([...addresses, savedAddress]);
-    // //     } catch (error) {
-    // //         console.error(`There was a problem with fetch request: ${error.message}`);
-    // //     }
-    //
-    // }
+    async function submitAddress() {
+
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/addAddress`;
+
+        const addressObj = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                streetNumber: streetNumber,
+                streetName: streetName,
+                cityName: cityName,
+                zipCode: zipCode,
+                gateCode: gateCode,
+                mailRoomCode: mailRoomCode,
+                lockerCode: lockerCode,
+                routeNumber: routeNumber,
+                neighborhood: neighborhood
+            })
+        }
+        try {
+            const response = await fetch(getUrl, addressObj);
+
+            if (!response.ok) {
+                throw new Error(`Network response error: ${response.status}`);
+            }
+            const savedAddress = await response.json();
+            setAddresses([...addresses, savedAddress]);
+        } catch (error) {
+            console.error(`There was a problem with fetch request: ${error.message}`);
+        }
+
+    }
 
     useEffect(() => {
 
         async function handleAddresses() {
 
-            const getUrl = `http://localhost:8080/api/codes/${routeNumber}`;
+            const getUrl = `${import.meta.env.VITE_API_URL}/api/codes/${routeNumber}`;
 
             const addressObj = {
                 method: "GET"
