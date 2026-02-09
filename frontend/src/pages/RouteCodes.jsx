@@ -58,7 +58,7 @@ export default function RouteCodes({searchResults}) {
                     </button>
                     <button className={"editCodeButton"}>Remove code</button>
                 </div>
-                <form id={"addCodeForm"} onSubmit={submitAddress}>
+                <form id={"addCodeForm"}>
                     {buttonClicked &&
                         <ul>
                             <li><label>Street Number: </label><input type={"text"}
@@ -91,38 +91,38 @@ export default function RouteCodes({searchResults}) {
             </div>
     }
 
-    async function submitAddress() {
-
-        const getUrl = `http://localhost:8080/api/addAddress`;
-
-        const addressObj = {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                streetNumber: streetNumber,
-                streetName: streetName,
-                cityName: cityName,
-                zipCode: zipCode,
-                gateCode: gateCode,
-                mailRoomCode: mailRoomCode,
-                lockerCode: lockerCode,
-                routeNumber: routeNumber,
-                neighborhood: neighborhood
-            })
-        }
-        try {
-            const response = await fetch(getUrl, addressObj);
-
-            if (!response.ok) {
-                throw new Error(`Network response error: ${response.status}`);
-            }
-            const savedAddress = await response.json();
-            setAddresses([...addresses, savedAddress]);
-        } catch (error) {
-            console.error(`There was a problem with fetch request: ${error.message}`);
-        }
-
-    }
+    // // async function submitAddress() {
+    // //
+    // //     const getUrl = `http://localhost:8080/api/addAddress`;
+    // //
+    // //     const addressObj = {
+    // //         method: "POST",
+    // //         headers: {"Content-Type": "application/json"},
+    // //         body: JSON.stringify({
+    // //             streetNumber: streetNumber,
+    // //             streetName: streetName,
+    // //             cityName: cityName,
+    // //             zipCode: zipCode,
+    // //             gateCode: gateCode,
+    // //             mailRoomCode: mailRoomCode,
+    // //             lockerCode: lockerCode,
+    // //             routeNumber: routeNumber,
+    // //             neighborhood: neighborhood
+    // //         })
+    // //     }
+    // //     try {
+    // //         const response = await fetch(getUrl, addressObj);
+    // //
+    // //         if (!response.ok) {
+    // //             throw new Error(`Network response error: ${response.status}`);
+    // //         }
+    // //         const savedAddress = await response.json();
+    // //         setAddresses([...addresses, savedAddress]);
+    // //     } catch (error) {
+    // //         console.error(`There was a problem with fetch request: ${error.message}`);
+    // //     }
+    //
+    // }
 
     useEffect(() => {
 
