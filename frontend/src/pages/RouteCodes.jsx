@@ -99,7 +99,7 @@ export default function RouteCodes({searchResults}) {
 
         async function handleAddresses() {
 
-            const getUrl = `${import.meta.env.VITE_API_URL}/api/codes/${routeNumber}`;
+            const getUrl = `https://localhost:8080/api/codes/${routeNumber}`;
 
             const addressObj = {
                 method: "GET"
