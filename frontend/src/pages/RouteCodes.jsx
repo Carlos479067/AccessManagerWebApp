@@ -16,14 +16,28 @@ export default function RouteCodes({searchResults}) {
     // gets dynamic values from the URL
     const {routeNumber} = useParams();
 
-    function handleInput(data) {
+    function handleStreetNumber(data) {
         setStreetNumber(data.target.value);
+    }
+    function handleStreetName(data) {
         setStreetName(data.target.value);
+    }
+    function handleCityName(data) {
         setCityName(data.target.value);
+    }
+    function handleZipCode(data) {
         setZipCode(data.target.value);
+    }
+    function handleGateCode(data) {
         setGateCode(data.target.value);
+    }
+    function handleMailRoomCode(data) {
         setMailRoomCode(data.target.value);
+    }
+    function handleLockerCode(data) {
         setLockerCode(data.target.value);
+    }
+    function handleNeighborhood(data) {
         setNeighborhood(data.target.value);
     }
 
@@ -39,14 +53,14 @@ export default function RouteCodes({searchResults}) {
                     <form id={"addCodeForm"} onSubmit={submitAddress}>
                         {buttonClicked &&
                             <ul>
-                                <li><label>Street Number: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Street Name: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>City Name: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Zip Code: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Gate Code: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Mail Room Code: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Locker Code: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><label>Neighborhood Name: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><label>Street Number: </label><input type={"text"} onChange={handleStreetNumber}></input></li>
+                                <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input></li>
+                                <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
+                                <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
+                                <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
+                                <li><label>Mail Room Code: </label><input type={"text"} onChange={handleMailRoomCode}></input></li>
+                                <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input></li>
+                                <li><label>Neighborhood Name: </label><input type={"text"} onChange={handleNeighborhood}></input></li>
                                 <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
                             </ul>
                         }
