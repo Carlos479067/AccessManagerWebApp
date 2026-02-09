@@ -64,7 +64,7 @@ export default function RouteCodes({searchResults}) {
 
     async function submitAddress() {
 
-        const getUrl = `http://52.15.235.192/api/addAddress`;
+        const getUrl = `http://localhost:8080/api/addAddress`;
 
         const addressObj = {
             method: "POST",
@@ -99,7 +99,7 @@ export default function RouteCodes({searchResults}) {
 
         async function handleAddresses() {
 
-            const getUrl = `http://52.15.235.192/api/codes/${routeNumber}`;
+            const getUrl = `http://localhost:8080/api/codes/${routeNumber}`;
 
             const addressObj = {
                 method: "GET"
@@ -198,6 +198,7 @@ export default function RouteCodes({searchResults}) {
                     </ul>
                 }
             </form>
+            {contentToRender}
         </main>
     )
 }
