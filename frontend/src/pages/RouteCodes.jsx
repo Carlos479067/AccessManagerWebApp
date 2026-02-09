@@ -19,6 +19,12 @@ export default function RouteCodes({searchResults}) {
     function handleInput(data) {
         setStreetNumber(data.target.value);
         setStreetName(data.target.value);
+        setCityName(data.target.value);
+        setZipCode(data.target.value);
+        setGateCode(data.target.value);
+        setMailRoomCode(data.target.value);
+        setLockerCode(data.target.value);
+        setNeighborhood(data.target.value);
     }
 
     let contentToRender = <></>;
@@ -36,11 +42,15 @@ export default function RouteCodes({searchResults}) {
                                 <li><label>Street Number: </label><input type={"text"} onChange={handleInput}></input></li>
                                 <li><label>Street Name: </label><input type={"text"} onChange={handleInput}></input></li>
                                 <li><label>City Name: </label><input type={"text"} onChange={handleInput}></input></li>
-                                <li><button className={"editCodeButton"} type={"submit"}>Submit</button></li>
+                                <li><label>Zip Code: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><label>Gate Code: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><label>Mail Room Code: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><label>Locker Code: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><label>Neighborhood Name: </label><input type={"text"} onChange={handleInput}></input></li>
+                                <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
                             </ul>
                         }
                     </form>
-
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
                 <ul>
                     {addresses.map((mainAddress) => {
