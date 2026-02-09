@@ -46,25 +46,6 @@ export default function RouteCodes({searchResults}) {
     if(searchResults.length === 0) {
         contentToRender =
             <div>
-                <div id={"routeCodeButtons"}>
-                    <button className={"editCodeButton"} onClick={() => setButtonClicked(!buttonClicked)}>Add new code</button>
-                    <button className={"editCodeButton"}>Remove code</button>
-                </div>
-                    <form id={"addCodeForm"} onSubmit={submitAddress}>
-                        {buttonClicked &&
-                            <ul>
-                                <li><label>Street Number: </label><input type={"text"} onChange={handleStreetNumber}></input></li>
-                                <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input></li>
-                                <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
-                                <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
-                                <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
-                                <li><label>Mail Room Code: </label><input type={"text"} onChange={handleMailRoomCode}></input></li>
-                                <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input></li>
-                                <li><label>Neighborhood Name: </label><input type={"text"} onChange={handleNeighborhood}></input></li>
-                                <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
-                            </ul>
-                        }
-                    </form>
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
                 <ul>
                     {addresses.map((mainAddress) => {
@@ -192,6 +173,31 @@ export default function RouteCodes({searchResults}) {
 
     return (
         <main>
+            <div id={"routeCodeButtons"}>
+                <button className={"editCodeButton"} onClick={() => setButtonClicked(!buttonClicked)}>Add new code
+                </button>
+                <button className={"editCodeButton"}>Remove code</button>
+            </div>
+            <form id={"addCodeForm"} onSubmit={submitAddress}>
+                {buttonClicked &&
+                    <ul>
+                        <li><label>Street Number: </label><input type={"text"} onChange={handleStreetNumber}></input>
+                        </li>
+                        <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input></li>
+                        <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
+                        <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
+                        <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
+                        <li><label>Mail Room Code: </label><input type={"text"} onChange={handleMailRoomCode}></input>
+                        </li>
+                        <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input></li>
+                        <li><label>Neighborhood Name: </label><input type={"text"}
+                                                                     onChange={handleNeighborhood}></input></li>
+                        <li>
+                            <button id={"formSubmitButton"} type={"submit"}>Submit</button>
+                        </li>
+                    </ul>
+                }
+            </form>
             {contentToRender}
         </main>
     )
