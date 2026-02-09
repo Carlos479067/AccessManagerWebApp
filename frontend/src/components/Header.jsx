@@ -58,7 +58,7 @@ export default function Header({setLoggedInUser, loggedInUser}) {
 
     useEffect(() => {
         async function fetchWeather() {
-            const getUrl = `${import.meta.env.VITE_API_URL}/api/weather`;
+            const getUrl = `${import.meta.env.VITE_API_URL}/api/weather`; // URL for Website
             const objWeather = {
                 method: "GET"
             }
