@@ -211,8 +211,8 @@ button:focus-visible {
 }
 
 .editCodeButton {
-  color: white;
-  background-color: peru;
+  color: whitesmoke;
+  background-color: #0A3161;
   font-family: 'Libre Baskerville', serif;
   font-size: 17px;
   border: 1px solid black;
@@ -226,6 +226,7 @@ button:focus-visible {
 
 #addCodeForm ul {
   padding-top: 25px;
+  text-align: right;
 }
 
 #addCodeForm li {
@@ -236,10 +237,20 @@ button:focus-visible {
   background-color: white;
   border-radius: 5px;
   width: 150px;
+  color: black;
 }
 
 #addCodeForm label {
   font-size: 20px;
+}
+
+#formSubmitButton {
+  color: whitesmoke;
+  background-color: #0A3161;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  border: 1px solid black;
+  margin: 10px 110px 0 0;
 
 }
 
