@@ -43,8 +43,7 @@ export default function RouteCodes({searchResults}) {
 
     let contentToRender = <></>;
 
-    if(searchResults && searchResults.length > 0) {
-
+    if(searchResults.length > 0) {
         contentToRender =
             <>
                 <div className={"main"}>

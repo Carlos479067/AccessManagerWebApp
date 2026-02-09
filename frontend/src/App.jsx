@@ -13,7 +13,7 @@ import RouteData from "./pages/RouteData.jsx";
 
 function App() {
 
-    const [searchResults, setSearchResults] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     const [loggedInUser, setLoggedInUser] = useState(() => {
         // Looks in the browser’s storage.
         const savedUser = localStorage.getItem("loggedInUser");
@@ -36,7 +36,7 @@ function App() {
         <div className={"pageContainer"}>
             <Header searchResults={searchResults} setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>
             <Navbar updateState={updateState} resetState={resetState} loggedInUser={loggedInUser}/>
-            <main className={"appMain"}>
+            <div className={"appMain"}>
                 <Routes>
                     <Route path={"/"} element={loggedInUser ? <Navigate to={"/home"} replace={true} /> : <Login setLoggedInUser={updateLoggedInUser} />}/>
                     <Route path={"/home"} element={loggedInUser ? <Home searchResults={searchResults} loggedInUser={loggedInUser} /> : <Login setLoggedInUser={updateLoggedInUser} />}
@@ -46,7 +46,7 @@ function App() {
                     <Route path={"/codes/:routeNumber"} element={<RouteCodes searchResults={searchResults}/>}/>
                     <Route path={"/splits/:routeNumber"} element={<RouteSplits/>}/>
                 </Routes>
-            </main>
+            </div>
             <Footer/>
         </div>
     )
