@@ -43,7 +43,15 @@ export default function RouteCodes({searchResults}) {
 
     let contentToRender = <></>;
 
-    if(searchResults.length === 0) {
+    if(searchResults && searchResults.length > 0) {
+
+        contentToRender =
+            <>
+                <div className={"main"}>
+                    <MapAddress searchAddress={searchResults}/>
+                </div>
+            </>
+    } else {
         contentToRender =
             <div>
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
@@ -53,13 +61,6 @@ export default function RouteCodes({searchResults}) {
                     })}
                 </ul>
             </div>
-    } else {
-        contentToRender =
-            <>
-                <div className={"main"}>
-                    <MapAddress searchAddress={searchResults}/>
-                </div>
-            </>
     }
 
     async function submitAddress() {
