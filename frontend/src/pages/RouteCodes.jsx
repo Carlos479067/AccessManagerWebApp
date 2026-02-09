@@ -174,12 +174,10 @@ export default function RouteCodes({searchResults}) {
     return (
         <main>
             <div id={"routeCodeButtons"}>
-                <button className={"editCodeButton"} onSubmit={submitAddress}
-                        onClick={() => setButtonClicked(!buttonClicked)}>Add new code
-                </button>
+                <button className={"editCodeButton"} onClick={() => setButtonClicked(!buttonClicked)}>Add new code</button>
                 <button className={"editCodeButton"}>Remove code</button>
             </div>
-            <form id={"addCodeForm"}>
+            <form id={"addCodeForm"} onSubmit={submitAddress}>
                 {buttonClicked &&
                     <ul>
                         <li><label>Street Number: </label><input type={"text"}
