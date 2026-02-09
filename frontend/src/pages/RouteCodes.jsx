@@ -62,8 +62,8 @@ export default function RouteCodes({searchResults}) {
             </div>
     }
 
-    async function submitAddress() {
-
+    async function submitAddress(e) {
+        e.preventDefault();
         const getUrl = `${import.meta.env.VITE_API_URL}/api/addAddress`;
 
         const addressObj = {
