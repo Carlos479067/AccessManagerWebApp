@@ -198,7 +198,6 @@ export default function RouteCodes({searchResults}) {
                     </ul>
                 }
             </form>
-            {contentToRender}
         </main>
     )
 }
