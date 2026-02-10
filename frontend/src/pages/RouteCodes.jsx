@@ -267,9 +267,11 @@ export default function RouteCodes({searchResults}) {
                                 <li><label>Type Street Number & Name or neighborhood to delete: </label><input type={"text"} onChange={handleStreetNumAndName}></input></li>
                                 <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
                             </ul>
-                            <ul>
-                                <SearchAddressToRemove searchResult={address}/>
-                            </ul>
+                            {address.length > 0 && (
+                                <ul>
+                                    <SearchAddressToRemove searchResult={address}/>
+                                </ul>
+                            )}
                         </form>
                     }
                 </form>
