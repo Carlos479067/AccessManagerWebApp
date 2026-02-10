@@ -255,6 +255,7 @@ export default function RouteCodes({searchResults}) {
                             </li>
                             <li><button className={"removeSubmitBtn"} type={"submit"}>Submit</button></li>
                             <li>{address.length > 0 && <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
+                            <li>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</li>
                         </ul>
                     </form>
                 )}
