@@ -190,7 +190,7 @@ export default function RouteCodes({searchResults}) {
         return (
             <>
                 {searchResult.map((searchResults) => (
-                    <RenderSearchAddress addressSearchObj={searchResults} key={searchResults.address.id}/>
+                    <RenderSearchAddress addressSearchObj={searchResults} key={searchResults.id}/>
                 ))}
             </>
         )
