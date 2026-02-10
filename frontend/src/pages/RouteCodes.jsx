@@ -119,6 +119,7 @@ export default function RouteCodes({searchResults}) {
                     throw new Error(`Network response error: ${response.status}`);
                 }
                 const data = await response.json();
+                console.log("Data: ", data);
                 setAddresses(data);
             } catch (error) {
                 console.error(`There was a problem with fetch request: ${error.message}`);
