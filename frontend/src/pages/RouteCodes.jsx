@@ -131,7 +131,7 @@ export default function RouteCodes({searchResults}) {
 
     async function SearchAddress() {
         event.preventDefault();
-        let getUrl = `http://localhost:8080/api/results`;
+        let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
         // Trim address so no spaces at beginning or end
         const trimAddress = streetNumName.trim();
         // Make address all lowercase letters
@@ -143,11 +143,11 @@ export default function RouteCodes({searchResults}) {
             const streetNumber = splitAddress[0];
             const streetName = splitAddress.slice(1).join(" ");
             // Build full URL
-            getUrl = `http://localhost:8080/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
+            getUrl = `${import.meta.env.VITE_API_URL}/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
             // If the first word is not a number then must be neighborhood
         } else if (isNaN(splitAddress[0])) {
             const neighborhood = splitAddress[0];
-            getUrl = `http://localhost:8080/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
+            getUrl = `${import.meta.env.VITE_API_URL}/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
         }
 
         const addressObj = {
