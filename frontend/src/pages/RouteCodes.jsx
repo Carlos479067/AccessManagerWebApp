@@ -95,7 +95,6 @@ export default function RouteCodes({searchResults}) {
                 throw new Error(`Network response error: ${response.status}`);
             }
             const savedAddress = await response.json();
-            console.log("saved: ", savedAddress);
             setAddresses([...addresses, savedAddress]);
         } catch (error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
@@ -120,7 +119,6 @@ export default function RouteCodes({searchResults}) {
                     throw new Error(`Network response error: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log("Delete search results: ", data);
                 setAddresses(data);
             } catch (error) {
                 console.error(`There was a problem with fetch request: ${error.message}`);
