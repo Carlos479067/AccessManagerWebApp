@@ -191,17 +191,13 @@ export default function RouteCodes({searchResults}) {
     function SearchAddressToRemove({searchResult}) {
         return (
             <>
-                {searchResult.length > 0 ? (
-                    <div>
-                        <ul>
-                            {searchResult.map((result) => (
-                                <RenderSearchAddress addressSearchObj={result} key={result.id}/>
-                            ))}
-                        </ul>
-                    </div>
-
-                ) : (<p>No address found</p>)
-                }
+                <div>
+                    <ul>
+                        {searchResult.map((result) => (
+                            <RenderSearchAddress addressSearchObj={result} key={result.id}/>
+                        ))}
+                    </ul>
+                </div>
             </>
         )
     }
@@ -262,8 +258,9 @@ export default function RouteCodes({searchResults}) {
                                 <input type={"text"} onChange={handleStreetNumAndName} />
                             </li>
                             <li><button className={"editCodeButton"} type={"submit"}>Submit</button></li>
+
+                        {address.length > 0 && <SearchAddressToRemove searchResult={address} />}
                         </ul>
-                        <SearchAddressToRemove searchResult={address} />
                     </form>
                 )}
             </>
