@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 export default function RouteCodes({searchResults}) {
 
     const [addresses, setAddresses] = useState([]);
-    const [address, setAddress] = useState("");
+    const [address, setAddress] = useState([]);
     const [buttonAddNewClicked, setButtonAddNewClicked] = useState(false);
     const [buttonRemoveClicked, setButtonRemoveClicked] = useState(false);
     const [streetNumName, setStreetNumName] = useState("");
