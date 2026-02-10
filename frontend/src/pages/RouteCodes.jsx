@@ -188,15 +188,15 @@ export default function RouteCodes({searchResults}) {
         )
     }
     // Searches for an address by street number & name and displays all address information
-    function SearchAddressToRemove({searchResult}) {
-        return (
-            <>
-                {searchResult.map((result) => (
-                    <RenderSearchAddress addressSearchObj={result} key={`${searchResults.streetNumber}-${searchResults.streetName}-${searchResults.routeNumber}`}/>
-                ))}
-            </>
-        )
-    }
+    // function SearchAddressToRemove({searchResult}) {
+    //     return (
+    //         <>
+    //             {searchResult.map((result) => (
+    //                 <RenderSearchAddress addressSearchObj={result} key={`${searchResults.streetNumber}-${searchResults.streetName}-${searchResults.routeNumber}`}/>
+    //             ))}
+    //         </>
+    //     )
+    // }
     
 
     function RenderAddress({addressMainObj}) {
