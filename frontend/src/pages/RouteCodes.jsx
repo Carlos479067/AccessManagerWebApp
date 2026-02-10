@@ -263,7 +263,7 @@ export default function RouteCodes({searchResults}) {
                             </li>
                             <li><button className={"editCodeButton"} type={"submit"}>Submit</button></li>
                         </ul>
-                        {address.length > 0 && <SearchAddressToRemove searchResult={address} />}
+                        <SearchAddressToRemove searchResult={address} />
                     </form>
                 )}
             </>
