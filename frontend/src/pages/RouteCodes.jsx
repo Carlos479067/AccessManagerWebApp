@@ -251,12 +251,17 @@ export default function RouteCodes({searchResults}) {
                         <ul>
                             <li>
                                 <label>Type Street Number & Name or neighborhood to delete: </label>
-                                <input type={"text"} onChange={handleStreetNumAndName} />
+                                <input type={"text"} onChange={handleStreetNumAndName}/>
                             </li>
-                            <li><button className={"removeSubmitBtn"} type={"submit"}>Submit</button></li>
-                            <li>{address.length > 0 && <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
-                            <div style={{color: "red"}}>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</div>
+                            <li>
+                                <button className={"removeSubmitBtn"} type={"submit"}>Submit</button>
+                            </li>
+                            <li>{address.length > 0 &&
+                                <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
                         </ul>
+                        <div
+                            style={{color: "red"}}>{address.length > 0 && <SearchAddressToRemove searchResult={address}/>}
+                        </div>
                     </form>
                 )}
             </>
