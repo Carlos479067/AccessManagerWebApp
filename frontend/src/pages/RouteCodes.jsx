@@ -4,49 +4,49 @@ import {useParams} from "react-router-dom";
 export default function RouteCodes({searchResults}) {
 
     const [addresses, setAddresses] = useState([]);
-    const [address, setAddress] = useState([]);
+    // const [address, setAddress] = useState([]);
     const [buttonAddNewClicked, setButtonAddNewClicked] = useState(false);
     const [buttonRemoveClicked, setButtonRemoveClicked] = useState(false);
-    const [streetNumName, setStreetNumName] = useState("");
-    const [streetNumber, setStreetNumber] = useState("");
-    const [streetName, setStreetName] = useState("");
-    const [cityName, setCityName] = useState("");
-    const [zipCode, setZipCode] = useState("");
-    const [gateCode, setGateCode] = useState("");
-    const [mailRoomCode, setMailRoomCode] = useState("");
-    const [lockerCode, setLockerCode] = useState("");
-    const [neighborhood, setNeighborhood] = useState("");
+    // const [streetNumName, setStreetNumName] = useState("");
+    // const [streetNumber, setStreetNumber] = useState("");
+    // const [streetName, setStreetName] = useState("");
+    // const [cityName, setCityName] = useState("");
+    // const [zipCode, setZipCode] = useState("");
+    // const [gateCode, setGateCode] = useState("");
+    // const [mailRoomCode, setMailRoomCode] = useState("");
+    // const [lockerCode, setLockerCode] = useState("");
+    // const [neighborhood, setNeighborhood] = useState("");
     // gets dynamic values from the URL
     const {routeNumber} = useParams();
 
-    function handleStreetNumber(data) {
-        setStreetNumber(data.target.value);
-    }
-    function handleStreetName(data) {
-        setStreetName(data.target.value);
-    }
-    function handleCityName(data) {
-        setCityName(data.target.value);
-    }
-    function handleZipCode(data) {
-        setZipCode(data.target.value);
-    }
-    function handleGateCode(data) {
-        setGateCode(data.target.value);
-    }
-    function handleMailRoomCode(data) {
-        setMailRoomCode(data.target.value);
-    }
-    function handleLockerCode(data) {
-        setLockerCode(data.target.value);
-    }
-    function handleNeighborhood(data) {
-        setNeighborhood(data.target.value);
-    }
-
-    function handleStreetNumAndName(data) {
-        setStreetNumName(data.target.value);
-    }
+    // function handleStreetNumber(data) {
+    //     setStreetNumber(data.target.value);
+    // }
+    // function handleStreetName(data) {
+    //     setStreetName(data.target.value);
+    // }
+    // function handleCityName(data) {
+    //     setCityName(data.target.value);
+    // }
+    // function handleZipCode(data) {
+    //     setZipCode(data.target.value);
+    // }
+    // function handleGateCode(data) {
+    //     setGateCode(data.target.value);
+    // }
+    // function handleMailRoomCode(data) {
+    //     setMailRoomCode(data.target.value);
+    // }
+    // function handleLockerCode(data) {
+    //     setLockerCode(data.target.value);
+    // }
+    // function handleNeighborhood(data) {
+    //     setNeighborhood(data.target.value);
+    // }
+    //
+    // function handleStreetNumAndName(data) {
+    //     setStreetNumName(data.target.value);
+    // }
 
     let contentToRender = <></>;
 
@@ -69,38 +69,38 @@ export default function RouteCodes({searchResults}) {
             </div>
     }
 
-    async function submitAddress(e) {
-        e.preventDefault();
-        const getUrl = `${import.meta.env.VITE_API_URL}/api/addAddress`;
-
-        const addressObj = {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                streetNumber: streetNumber,
-                streetName: streetName,
-                cityName: cityName,
-                zipCode: zipCode,
-                gateCode: gateCode,
-                mailRoomCode: mailRoomCode,
-                lockerCode: lockerCode,
-                routeNumber: routeNumber,
-                neighborhood: neighborhood
-            })
-        }
-        try {
-            const response = await fetch(getUrl, addressObj);
-
-            if (!response.ok) {
-                throw new Error(`Network response error: ${response.status}`);
-            }
-            const savedAddress = await response.json();
-            setAddresses([...addresses, savedAddress]);
-        } catch (error) {
-            console.error(`There was a problem with fetch request: ${error.message}`);
-        }
-
-    }
+    // async function submitAddress(e) {
+    //     e.preventDefault();
+    //     const getUrl = `${import.meta.env.VITE_API_URL}/api/addAddress`;
+    //
+    //     const addressObj = {
+    //         method: "POST",
+    //         headers: {"Content-Type": "application/json"},
+    //         body: JSON.stringify({
+    //             streetNumber: streetNumber,
+    //             streetName: streetName,
+    //             cityName: cityName,
+    //             zipCode: zipCode,
+    //             gateCode: gateCode,
+    //             mailRoomCode: mailRoomCode,
+    //             lockerCode: lockerCode,
+    //             routeNumber: routeNumber,
+    //             neighborhood: neighborhood
+    //         })
+    //     }
+    //     try {
+    //         const response = await fetch(getUrl, addressObj);
+    //
+    //         if (!response.ok) {
+    //             throw new Error(`Network response error: ${response.status}`);
+    //         }
+    //         const savedAddress = await response.json();
+    //         setAddresses([...addresses, savedAddress]);
+    //     } catch (error) {
+    //         console.error(`There was a problem with fetch request: ${error.message}`);
+    //     }
+    //
+    // }
 
     useEffect(() => {
 
