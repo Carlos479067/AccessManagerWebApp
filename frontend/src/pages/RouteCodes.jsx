@@ -259,8 +259,8 @@ export default function RouteCodes({searchResults}) {
                             <li>{address.length > 0 &&
                                 <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
                         </ul>
-                        <div
-                            style={{color: "red"}}>{address.length > 0 && <SearchAddressToRemove searchResult={address}/>}
+                        <div id={"addressResults"}>
+                            {address.length > 0 && <SearchAddressToRemove searchResult={address}/>}
                         </div>
                     </form>
                 )}

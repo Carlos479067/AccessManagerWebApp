@@ -299,7 +299,12 @@ button:focus-visible {
   font-size: 17px;
   border: 1px solid black;
   margin: 10px 110px 0 0;
+}
 
+#addressResults {
+  color: red;
+  display: flex;
+  justify-content: center;
 }
 
 /* ----------------------------------------------------------------*/
