@@ -129,6 +129,8 @@ export default function RouteCodes({searchResults}) {
 
     }, [routeNumber]);
 
+
+    useEffect(() => {
     async function SearchAddress() {
         event.preventDefault();
         let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
@@ -165,6 +167,10 @@ export default function RouteCodes({searchResults}) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
     }
+        //Call function
+        SearchAddress();
+
+    }, [routeNumber]);
 
 
     // For search feature in navbar. Maps the addresses and renders the results
