@@ -4,7 +4,10 @@ import {useParams} from "react-router-dom";
 export default function RouteCodes({searchResults}) {
 
     const [addresses, setAddresses] = useState([]);
-    const [buttonClicked, setButtonClicked] = useState(false);
+    const [address, setAddress] = useState([]);
+    const [buttonAddNewClicked, setButtonAddNewClicked] = useState(false);
+    const [buttonRemoveClicked, setButtonRemoveClicked] = useState(false);
+    const [streetNumName, setStreetNumName] = useState(false);
     const [streetNumber, setStreetNumber] = useState("");
     const [streetName, setStreetName] = useState("");
     const [cityName, setCityName] = useState("");
@@ -41,6 +44,10 @@ export default function RouteCodes({searchResults}) {
         setNeighborhood(data.target.value);
     }
 
+    function handleStreetNumAndName(data) {
+        setStreetNumName(data.target.value);
+    }
+
     let contentToRender = <></>;
 
     if(searchResults.length > 0) {
@@ -56,7 +63,7 @@ export default function RouteCodes({searchResults}) {
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
                 <ul>
                     {addresses.map((mainAddress) => {
-                        return <RenderAddress addressMainObj={mainAddress} key={mainAddress.address_id}/>
+                        return <RenderAddress addressMainObj={mainAddress} key={mainAddress.address.id}/>
                     })}
                 </ul>
             </div>
@@ -122,6 +129,43 @@ export default function RouteCodes({searchResults}) {
 
     }, [routeNumber]);
 
+    async function SearchAddress() {
+        event.preventDefault();
+        let getUrl = `http://localhost:8080/api/results`;
+        // Trim address so no spaces at beginning or end
+        const trimAddress = streetNumName.trim();
+        // Make address all lowercase letters
+        const lowerCaseAddress = trimAddress.toLowerCase();
+        // Split address by space
+        const splitAddress = lowerCaseAddress.split(" ");
+        // If the first word is a number
+        if (!isNaN(splitAddress[0])) {
+            const streetNumber = splitAddress[0];
+            const streetName = splitAddress.slice(1).join(" ");
+            // Build full URL
+            getUrl = `http://localhost:8080/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
+            // If the first word is not a number then must be neighborhood
+        } else if (isNaN(splitAddress[0])) {
+            const neighborhood = splitAddress[0];
+            getUrl = `http://localhost:8080/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
+        }
+
+        const addressObj = {
+            method: "GET"
+        }
+        try {
+            const response = await fetch(getUrl, addressObj);
+            if (!response.ok) {
+                throw new Error(`Network response error: ${response.status}`);
+            }
+            const data = await response.json();
+            setAddress(data);
+        } catch (error) {
+            console.error(`There was a problem with fetch request: ${error.message}`);
+        }
+    }
+
+    // For search feature in navbar. Maps the addresses and renders the results
     function MapAddress({searchAddress}) {
 
         return (
@@ -130,7 +174,7 @@ export default function RouteCodes({searchResults}) {
                     <div>
                         <ul>
                             {searchAddress.map((searchAddresses) => (
-                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.address_id}/>
+                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.address.id}/>
                             ))}
                         </ul>
                     </div>
@@ -141,6 +185,17 @@ export default function RouteCodes({searchResults}) {
 
         )
     }
+    // Searches for an address by street number & name and displays all address information
+    function SearchAddressToRemove({searchResult}) {
+        return (
+            <>
+                {searchResult.map((searchResults) => (
+                    <RenderSearchAddress addressSearchObj={searchResults} key={searchResults.address.id}/>
+                ))}
+            </>
+        )
+    }
+    
 
     function RenderAddress({addressMainObj}) {
         return (
@@ -171,36 +226,54 @@ export default function RouteCodes({searchResults}) {
         )
     }
 
+    function AddressForms() {
+
+        return (
+                <form id={"addCodeForm"} onSubmit={submitAddress}>
+                    {buttonAddNewClicked &&
+                        <ul>
+                            <li><label>Street Number: </label><input type={"text"}
+                                                                     onChange={handleStreetNumber}></input>
+                            </li>
+                            <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input>
+                            </li>
+                            <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
+                            <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
+                            <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
+                            <li><label>Mail Room Code: </label><input type={"text"}
+                                                                      onChange={handleMailRoomCode}></input>
+                            </li>
+                            <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input>
+                            </li>
+                            <li><label>Neighborhood Name: </label><input type={"text"}
+                                                                         onChange={handleNeighborhood}></input></li>
+                            <li>
+                                <button id={"formSubmitButton"} type={"submit"}>Submit</button>
+                            </li>
+                        </ul>
+                    }
+                    {buttonRemoveClicked &&
+                        <form id={"addCodeForm"} onSubmit={SearchAddressToRemove}>
+                            <ul>
+                                <li><label>Type Street Number & Name or neighborhood to delete: </label><input type={"text"} onChange={handleStreetNumAndName}></input></li>
+                                <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
+                            </ul>
+                            <ul>
+                                <SearchAddressToRemove searchResult={address}/>
+                            </ul>
+                        </form>
+                    }
+                </form>
+        )
+    }
+
     return (
         <main>
             <div id={"routeCodeButtons"}>
-                <button className={"editCodeButton"} onClick={() => setButtonClicked(!buttonClicked)}>Add new code</button>
-                <button className={"editCodeButton"}>Remove code</button>
+                <button className={"editCodeButton"} onClick={() => setButtonAddNewClicked(!buttonAddNewClicked && !buttonRemoveClicked)}>Add new code</button>
+                <button className={"editCodeButton"} onClick={() => setButtonRemoveClicked(!buttonRemoveClicked &&  !buttonAddNewClicked)}>Remove code</button>
             </div>
-            <form id={"addCodeForm"} onSubmit={submitAddress}>
-                {buttonClicked &&
-                    <ul>
-                        <li><label>Street Number: </label><input type={"text"}
-                                                                 onChange={handleStreetNumber}></input>
-                        </li>
-                        <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input>
-                        </li>
-                        <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
-                        <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
-                        <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
-                        <li><label>Mail Room Code: </label><input type={"text"}
-                                                                  onChange={handleMailRoomCode}></input>
-                        </li>
-                        <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input>
-                        </li>
-                        <li><label>Neighborhood Name: </label><input type={"text"}
-                                                                     onChange={handleNeighborhood}></input></li>
-                        <li>
-                            <button id={"formSubmitButton"} type={"submit"}>Submit</button>
-                        </li>
-                    </ul>
-                }
-            </form>
+            {AddressForms()}
             {contentToRender}
         </main>
     )
