@@ -258,8 +258,7 @@ export default function RouteCodes({searchResults}) {
                                 <input type={"text"} onChange={handleStreetNumAndName} />
                             </li>
                             <li><button className={"editCodeButton"} type={"submit"}>Submit</button></li>
-
-                        {address.length > 0 && <SearchAddressToRemove searchResult={address} />}
+                            <li>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</li>
                         </ul>
                     </form>
                 )}
