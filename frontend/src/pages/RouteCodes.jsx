@@ -236,46 +236,38 @@ export default function RouteCodes({searchResults}) {
     }
 
     function AddressForms() {
-
         return (
-                <form id={"addCodeForm"} onSubmit={submitAddress}>
-                    {buttonAddNewClicked &&
+            <>
+                {buttonAddNewClicked && (
+                    <form id="addCodeForm" onSubmit={submitAddress}>
                         <ul>
-                            <li><label>Street Number: </label><input type={"text"}
-                                                                     onChange={handleStreetNumber}></input>
-                            </li>
-                            <li><label>Street Name: </label><input type={"text"} onChange={handleStreetName}></input>
-                            </li>
-                            <li><label>City Name: </label><input type={"text"} onChange={handleCityName}></input></li>
-                            <li><label>Zip Code: </label><input type={"text"} onChange={handleZipCode}></input></li>
-                            <li><label>Gate Code: </label><input type={"text"} onChange={handleGateCode}></input></li>
-                            <li><label>Mail Room Code: </label><input type={"text"}
-                                                                      onChange={handleMailRoomCode}></input>
-                            </li>
-                            <li><label>Locker Code: </label><input type={"text"} onChange={handleLockerCode}></input>
-                            </li>
-                            <li><label>Neighborhood Name: </label><input type={"text"}
-                                                                         onChange={handleNeighborhood}></input></li>
-                            <li>
-                                <button id={"formSubmitButton"} type={"submit"}>Submit</button>
-                            </li>
+                            <li><label>Street Number: </label><input type="text" onChange={handleStreetNumber} /></li>
+                            <li><label>Street Name: </label><input type="text" onChange={handleStreetName} /></li>
+                            <li><label>City Name: </label><input type="text" onChange={handleCityName} /></li>
+                            <li><label>Zip Code: </label><input type="text" onChange={handleZipCode} /></li>
+                            <li><label>Gate Code: </label><input type="text" onChange={handleGateCode} /></li>
+                            <li><label>Mail Room Code: </label><input type="text" onChange={handleMailRoomCode} /></li>
+                            <li><label>Locker Code: </label><input type="text" onChange={handleLockerCode} /></li>
+                            <li><label>Neighborhood Name: </label><input type="text" onChange={handleNeighborhood} /></li>
+                            <li><button type="submit">Submit</button></li>
                         </ul>
-                    }
-                    {buttonRemoveClicked &&
-                        <form id={"addCodeForm"} onSubmit={SearchAddress}>
-                            <ul>
-                                <li><label>Type Street Number & Name or neighborhood to delete: </label><input type={"text"} onChange={handleStreetNumAndName}></input></li>
-                                <li><button id={"formSubmitButton"} type={"submit"}>Submit</button></li>
-                            </ul>
-                            {address.length > 0 && (
-                                <ul>
-                                    <SearchAddressToRemove searchResult={address}/>
-                                </ul>
-                            )}
-                        </form>
-                    }
-                </form>
-        )
+                    </form>
+                )}
+
+                {buttonRemoveClicked && (
+                    <form id="removeCodeForm" onSubmit={SearchAddress}>
+                        <ul>
+                            <li>
+                                <label>Type Street Number & Name or neighborhood to delete: </label>
+                                <input type="text" onChange={handleStreetNumAndName} />
+                            </li>
+                            <li><button type="submit">Submit</button></li>
+                        </ul>
+                        {address.length > 0 && <SearchAddressToRemove searchResult={address} />}
+                    </form>
+                )}
+            </>
+        );
     }
 
     return (
