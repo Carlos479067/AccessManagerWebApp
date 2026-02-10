@@ -215,8 +215,20 @@ button:focus-visible {
   background-color: #0A3161;
   font-family: 'Libre Baskerville', serif;
   font-size: 17px;
-  border: 1px solid black;
+  border: 2px solid white;
   margin: 0 25px;
+}
+
+.editCodeButton:hover {
+  color: ghostwhite;
+  border: 2px solid white;
+  background-color: #061F3D;
+}
+
+.editCodeButton:focus {
+  color: ghostwhite;
+  border: 2px solid white;
+  background-color: #061F3D;
 }
 
 #addCodeForm {
