@@ -231,6 +231,42 @@ button:focus-visible {
   background-color: #061F3D;
 }
 
+#deleteCodeForm {
+  display: flex;
+  justify-content: center;
+}
+
+.addSubmitBtn {
+  margin-top: 25px;
+  color: whitesmoke;
+  background-color: #0A3161;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  border: 2px solid white;
+  margin-right: 100px;
+}
+
+.removeSubmitBtn {
+  margin-top: 25px;
+  color: whitesmoke;
+  background-color: #0A3161;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  border: 2px solid white;
+
+}
+
+#deleteCodeForm ul {
+  padding-top: 25px;
+}
+
+#deleteCodeForm input {
+  background-color: white;
+  border-radius: 5px;
+  width: 150px;
+  color: black;
+}
+
 #addCodeForm {
   display: flex;
   justify-content: center;

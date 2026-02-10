@@ -246,18 +246,18 @@ export default function RouteCodes({searchResults}) {
                             <li><label>Mail Room Code: </label><input type="text" onChange={handleMailRoomCode} /></li>
                             <li><label>Locker Code: </label><input type="text" onChange={handleLockerCode} /></li>
                             <li><label>Neighborhood Name: </label><input type="text" onChange={handleNeighborhood} /></li>
-                            <li><button type="submit">Submit</button></li>
+                            <li><button className={"addSubmitBtn"} type="submit">Submit</button></li>
                         </ul>
                     </form>
                 )}
                 {buttonRemoveClicked && (
-                    <form id={"addCodeForm"} onSubmit={SearchAddress}>
+                    <form id={"deleteCodeForm"} onSubmit={SearchAddress}>
                         <ul>
                             <li>
                                 <label>Type Street Number & Name or neighborhood to delete: </label>
                                 <input type={"text"} onChange={handleStreetNumAndName} />
                             </li>
-                            <li><button className={"editCodeButton"} type={"submit"}>Submit</button></li>
+                            <li><button className={"removeSubmitBtn"} type={"submit"}>Submit</button></li>
                             <li>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</li>
                         </ul>
                     </form>
