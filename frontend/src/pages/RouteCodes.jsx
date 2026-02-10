@@ -191,8 +191,8 @@ export default function RouteCodes({searchResults}) {
     function SearchAddressToRemove({searchResult}) {
         return (
             <>
-                {searchResult.map((searchResults) => (
-                    <RenderSearchAddress addressSearchObj={searchResults} key={searchResults.id}/>
+                {searchResult.map((result) => (
+                    <RenderSearchAddress addressSearchObj={result} key={`${searchResults.streetNumber}-${searchResults.streetName}-${searchResults.routeNumber}`}/>
                 ))}
             </>
         )
