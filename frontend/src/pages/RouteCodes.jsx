@@ -191,13 +191,9 @@ export default function RouteCodes({searchResults}) {
     function SearchAddressToRemove({searchResult}) {
         return (
             <>
-                <div>
-                    <ul>
                         {searchResult.map((result) => (
                             <RenderSearchAddress addressSearchObj={result} key={result.id}/>
                         ))}
-                    </ul>
-                </div>
             </>
         )
     }
