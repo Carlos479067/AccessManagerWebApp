@@ -168,25 +168,25 @@ export default function RouteCodes({searchResults}) {
 
 
     // For search feature in navbar. Maps the addresses and renders the results
-    function MapAddress({searchAddress}) {
-
-        return (
-            <>
-                {searchAddress.length > 0 ? (
-                    <div>
-                        <ul>
-                            {searchAddress.map((searchAddresses) => (
-                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.id}/>
-                            ))}
-                        </ul>
-                    </div>
-
-                ) : (<p>No address found</p>)
-                }
-            </>
-
-        )
-    }
+    // function MapAddress({searchAddress}) {
+    //
+    //     return (
+    //         <>
+    //             {searchAddress.length > 0 ? (
+    //                 <div>
+    //                     <ul>
+    //                         {searchAddress.map((searchAddresses) => (
+    //                             <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.id}/>
+    //                         ))}
+    //                     </ul>
+    //                 </div>
+    //
+    //             ) : (<p>No address found</p>)
+    //             }
+    //         </>
+    //
+    //     )
+    // }
     // Searches for an address by street number & name and displays all address information
     // function SearchAddressToRemove({searchResult}) {
     //     return (
