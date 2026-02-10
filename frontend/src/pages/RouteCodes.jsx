@@ -159,11 +159,13 @@ export default function RouteCodes({searchResults}) {
                 throw new Error(`Network response error: ${response.status}`);
             }
             const data = await response.json();
+            console.log("Delete search results: ", data);
             setAddress(data);
         } catch (error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
     }
+
 
     // For search feature in navbar. Maps the addresses and renders the results
     function MapAddress({searchAddress}) {
@@ -174,7 +176,7 @@ export default function RouteCodes({searchResults}) {
                     <div>
                         <ul>
                             {searchAddress.map((searchAddresses) => (
-                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.id}/>
+                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses.address.id}/>
                             ))}
                         </ul>
                     </div>
