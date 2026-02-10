@@ -129,7 +129,7 @@ export default function RouteCodes({searchResults}) {
 
     }, [routeNumber]);
 
-    async function SearchAddress() {
+    async function SearchAddress(event) {
         event.preventDefault();
         let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
         // Trim address so no spaces at beginning or end
