@@ -7,7 +7,7 @@ export default function RouteCodes({searchResults}) {
     const [address, setAddress] = useState("");
     const [buttonAddNewClicked, setButtonAddNewClicked] = useState(false);
     const [buttonRemoveClicked, setButtonRemoveClicked] = useState(false);
-    const [streetNumName, setStreetNumName] = useState(false);
+    const [streetNumName, setStreetNumName] = useState("");
     const [streetNumber, setStreetNumber] = useState("");
     const [streetName, setStreetName] = useState("");
     const [cityName, setCityName] = useState("");
