@@ -38,7 +38,7 @@ function App() {
             <Navbar updateState={updateState} resetState={resetState} loggedInUser={loggedInUser}/>
             <div className={"appMain"}>
                 <Routes>
-                    <Route path={"/"} element={loggedInUser ? <Navigate to={"/home"} replace={true} /> : <Login setLoggedInUser={updateLoggedInUser} />}/>
+                    <Route path={"/*"} element={loggedInUser ? <Navigate to={"/home"} replace={true} /> : <Login setLoggedInUser={updateLoggedInUser} />}/>
                     <Route path={"/home"} element={loggedInUser ? <Home searchResults={searchResults} loggedInUser={loggedInUser} /> : <Login setLoggedInUser={updateLoggedInUser} />}
                     />
                     <Route path={"/forms"} element={<Forms />}/>
