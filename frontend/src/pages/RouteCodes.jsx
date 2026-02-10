@@ -175,7 +175,7 @@ export default function RouteCodes({searchResults}) {
                     <div>
                         <ul>
                             {searchAddress.map((searchAddresses) => (
-                                <RenderSearchAddress addressSearchObj={searchAddresses} key={searchAddresses_id}/>
+                                <RenderSearchAddress addressSearchObj={searchAddresses} key={`${searchAddresses.streetNumber}-${searchAddresses.streetName}-${searchAddresses.routeNumber}`}/>
                             ))}
                         </ul>
                     </div>
@@ -194,7 +194,7 @@ export default function RouteCodes({searchResults}) {
                     <div>
                         <ul>
                             {searchResult.map((result) => (
-                                <RenderSearchAddress addressSearchObj={result} key={result_id}/>
+                                <RenderSearchAddress addressSearchObj={result} key={`${result.streetNumber}-${result.streetName}-${result.routeNumber}`}/>
                             ))}
                         </ul>
                     </div>

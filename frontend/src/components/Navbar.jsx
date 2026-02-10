@@ -5,51 +5,46 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
 
     const [addressSearch, setAddressSearch] = useState("");
 
-
     function handleQuery(event) {
-        // Gets user input
+        // Gets user input for address search
         setAddressSearch(event.target.value);
     }
 
-    function handleSearchButton(event) {
-        // Prevent reloading page when button clicked
+    async function handleSearchButton(event) {
         event.preventDefault();
-        // AWS backend url
-        let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
-
+        let getUrl = `http://localhost:8080/api/results`;
+        // Trim address so no spaces at beginning or end
         const trimAddress = addressSearch.trim();
-        const address = trimAddress.toLowerCase();
-        const splitAddress = address.split(" ");
-
-        if(!isNaN(splitAddress[0])) {
+        // Make address all lowercase letters
+        const lowerCaseAddress = trimAddress.toLowerCase();
+        // Split address by space
+        const splitAddress = lowerCaseAddress.split(" ");
+        // If the first word is a number
+        if (!isNaN(splitAddress[0])) {
             const streetNumber = splitAddress[0];
             const streetName = splitAddress.slice(1).join(" ");
-            //Build full url
-            getUrl = `${import.meta.env.VITE_API_URL}/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
-        }
-        else if(isNaN(splitAddress[0])) {
+            // Build full URL
+            getUrl = `http://localhost:8080/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
+            // If the first word is not a number then must be neighborhood
+        } else if (isNaN(splitAddress[0])) {
             const neighborhood = splitAddress[0];
-            getUrl = `${import.meta.env.VITE_API_URL}/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
+            getUrl = `http://localhost:8080/api/results?neighborhood=${encodeURIComponent(neighborhood)}`;
         }
-
-        //Create object request
-        const requestObj = {
+        const addressObj = {
             method: "GET"
         }
-        //send request using fetch
-        fetch(getUrl, requestObj)
-            .then(response => {
-                if(!response.ok) {
-                    throw new Error(`Network response error: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                updateState(data);
-            })
-            .catch(error => {
-                throw new Error(`There was a problem with the fetch request: ${error.status}`);
-            })
+        try{
+            const response = await fetch(getUrl, addressObj);
+
+            if(!response.ok) {
+                throw new Error(`Network response error: ${response.status}`);
+            }
+            const data = await response.json();
+            // Method that sets the search results in App.JSX
+            updateState(data);
+        } catch(error) {
+            throw new Error(`There was a problem with fetch request: ${error.message}`);
+        }
     }
 
     return (
