@@ -63,7 +63,7 @@ export default function RouteCodes({searchResults}) {
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
                 <ul>
                     {addresses.map((mainAddress) => {
-                        return <RenderAddress addressMainObj={mainAddress} key={mainAddress.address.id}/>
+                        return <RenderAddress addressMainObj={mainAddress} key={mainAddress.id}/>
                     })}
                 </ul>
             </div>
