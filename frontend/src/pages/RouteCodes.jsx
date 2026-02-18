@@ -97,7 +97,13 @@ export default function RouteCodes({searchResults}) {
             if (!response.ok) {
                 throw new Error(`Network response error: ${response.status}`);
             }
-            const deleteAddress = await response.json();
+
+            // Only parse JSON if response has content
+            let deleteAddress = null;
+            const text = await response.text();
+            if (text) {
+                deleteAddress = JSON.parse(text);
+            }
             // Use filter() to remove only the deletedAddress and keep all other addresses
             setAddresses(addresses.filter(addr =>
                 !(addr.streetNumber === deleteAddress.streetNumber &&
