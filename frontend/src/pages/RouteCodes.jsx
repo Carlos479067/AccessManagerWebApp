@@ -69,6 +69,48 @@ export default function RouteCodes({searchResults}) {
             </div>
     }
 
+    // Handle delete button to remove address from database
+    async function handleDelete(e) {
+        e.preventDefault()
+
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/deleteAddress`;
+
+        const addressObj = {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                streetNumber: streetNumber,
+                streetName: streetName,
+                cityName: cityName,
+                zipCode: zipCode,
+                gateCode: gateCode,
+                mailRoomCode: mailRoomCode,
+                lockerCode: lockerCode,
+                routeNumber: routeNumber,
+                neighborhood: neighborhood
+            })
+        }
+
+        try {
+            const response = await fetch(getUrl, addressObj);
+
+            if (!response.ok) {
+                throw new Error(`Network response error: ${response.status}`);
+            }
+            const deleteAddress = await response.json();
+            // Use filter() to remove only the deletedAddress and keep all other addresses
+            setAddresses(addresses.filter(addr =>
+                !(addr.streetNumber === deleteAddress.streetNumber &&
+                addr.streetName === deleteAddress.streetName &&
+                addr.neighborhood === deleteAddress.neighborhood)
+            ));
+
+        } catch(error) {
+            console.error(`There was a problem with fetch request: ${error.message}`);
+        }
+    }
+
+    // Add new code button to submit new address to database
     async function submitAddress(e) {
         e.preventDefault();
         const getUrl = `${import.meta.env.VITE_API_URL}/api/addAddress`;
@@ -102,6 +144,7 @@ export default function RouteCodes({searchResults}) {
 
     }
 
+    // Call to backend to retrieve addresses in database to render on codes page
     useEffect(() => {
 
         async function handleAddresses() {
@@ -130,6 +173,7 @@ export default function RouteCodes({searchResults}) {
 
     }, [routeNumber]);
 
+    // Call to backend to search an address in the database
     async function SearchAddress(event) {
         event.preventDefault();
         let getUrl = `${import.meta.env.VITE_API_URL}/api/results`;
@@ -251,11 +295,12 @@ export default function RouteCodes({searchResults}) {
                         <ul>
                             <li>
                                 <label>Type Street Number & Name or neighborhood to delete: </label>
-                                <input type={"text"} onChange={handleStreetNumAndName} />
+                                <input type={"text"} onChange={handleStreetNumAndName} placeholder={"Address..."} />
                             </li>
                             <li><button className={"removeSubmitBtn"} type={"submit"}>Submit</button></li>
                             <li>{address.length > 0 && <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
                             <li>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</li>
+                            <li>{address.length > 0 && <button className={"removeSubmitBtn"} type={"button"} onClick={handleDelete}>Delete</button>}</li>
                         </ul>
                     </form>
                 )}

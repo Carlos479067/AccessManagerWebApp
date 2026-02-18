@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AddressService {
@@ -37,6 +38,36 @@ public class AddressService {
 
         addressRepository.save(address);
         return address;
+    }
+
+    public Address deleteAddress(AddressDto addressDto) {
+        // hold the address that gets deleted
+        Address deletedAddress = null;
+
+        if(!addressDto.getStreetNumber().isEmpty() && !addressDto.getStreetName().isEmpty()) {
+            // Find all addresses in repository that match the street number and name
+            List<Address> removeAddr = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(addressDto.getStreetNumber(), addressDto.getStreetName());
+            // Throw exception if no matches found in database
+            if(removeAddr.isEmpty()) {
+                throw new NoSuchElementException("No matching address found for deletion");
+            }
+            // Get the first match from the list
+            deletedAddress = removeAddr.get(0);
+            // Delete address from database
+            addressRepository.delete(deletedAddress);
+        } else if (!addressDto.getNeighborhood().isEmpty()) {
+            // Find all addresses in repository that match neighborhood name
+            List<Address> removeNeighborhood = addressRepository.findByNeighborhoodContainingIgnoreCase(addressDto.getNeighborhood());
+            // Throw exception if no matches found in database
+            if(removeNeighborhood.isEmpty()) {
+                throw new NoSuchElementException("No matching neighborhood found for deletion");
+            }
+            // Get the first match from the list
+            deletedAddress = removeNeighborhood.get(0);
+            // Delete address from database
+            addressRepository.delete(deletedAddress);
+        }
+        return deletedAddress;
     }
 
     public List<AddressDto> routeResults(String route) {

@@ -35,4 +35,9 @@ public class AddressController {
     public Address addAddress(@RequestBody AddressDto addressDto) {
         return addressService.addAddress(addressDto);
     }
+
+    @DeleteMapping("/deleteAddress")
+    public Address deleteAddress(@RequestBody AddressDto addressDto) {
+        return addressService.deleteAddress(addressDto);
+    }
 }
