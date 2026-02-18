@@ -92,7 +92,8 @@ export default function RouteCodes({searchResults}) {
                 throw new Error(`Network response error: ${response.status}`);
             }
             // Use filter() to remove only the deletedAddress and keep all other addresses
-            setAddresses(addresses.filter(addr =>
+            setAddresses(prevAddresses =>
+                prevAddresses.filter(addr =>
                 !(addr.streetNumber === streetNumber &&
                 addr.streetName === streetName)
             ));
