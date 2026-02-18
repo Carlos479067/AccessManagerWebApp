@@ -2,7 +2,6 @@ package com.example.backend.controller;
 import com.example.backend.dto.AddressDto;
 import com.example.backend.model.Address;
 import com.example.backend.service.AddressService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,8 +37,7 @@ public class AddressController {
     }
 
     @DeleteMapping("/deleteAddress")
-    public ResponseEntity<Address> deleteAddress(@RequestBody AddressDto addressDto) {
-        Address deleteAddress = addressService.deleteAddress(addressDto);
-        return ResponseEntity.ok(deleteAddress);
+    public Address deleteAddress(@RequestBody AddressDto addressDto) {
+        return addressService.deleteAddress(addressDto);
     }
 }
