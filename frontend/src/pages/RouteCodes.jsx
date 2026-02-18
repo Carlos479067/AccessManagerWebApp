@@ -91,13 +91,14 @@ export default function RouteCodes({searchResults}) {
             if (!response.ok) {
                 throw new Error(`Network response error: ${response.status}`);
             }
+            const text = await response.text();
+            console.log("Raw response text:", text);
             // Use filter() to remove only the deletedAddress and keep all other addresses
-            setAddresses(prevAddresses =>
-                prevAddresses.filter(addr =>
+            const filter = setAddresses(addresses.filter(addr =>
                 !(addr.streetNumber === streetNumber &&
                 addr.streetName === streetName)
             ));
-
+            console.log("Filter ", filter);
         } catch(error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
