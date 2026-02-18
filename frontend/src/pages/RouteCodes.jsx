@@ -97,12 +97,11 @@ export default function RouteCodes({searchResults}) {
             if (!response.ok) {
                 throw new Error(`Network response error: ${response.status}`);
             }
-            const deleteAddress = await response.json();
             // Use filter() to remove only the deletedAddress and keep all other addresses
             setAddresses(addresses.filter(addr =>
-                !(addr.streetNumber === deleteAddress.streetNumber &&
-                addr.streetName === deleteAddress.streetName &&
-                addr.neighborhood === deleteAddress.neighborhood)
+                !(addr.streetNumber === streetNumber &&
+                addr.streetName === streetName &&
+                addr.neighborhood === neighborhood)
             ));
 
         } catch(error) {
