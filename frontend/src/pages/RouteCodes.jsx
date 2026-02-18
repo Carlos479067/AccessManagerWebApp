@@ -95,8 +95,9 @@ export default function RouteCodes({searchResults}) {
             console.log("Raw response text:", text);
             // Use filter() to remove only the deletedAddress and keep all other addresses
             const filter = setAddresses(addresses.filter(addr =>
-                !(addr.streetNumber === streetNumber &&
-                addr.streetName === streetName)
+                !(addr.streetNumber.trim() === streetNumber.trim() &&
+                    addr.streetName.toLowerCase().trim() === streetName.toLowerCase().trim() &&
+                    addr.neighborhood.toLowerCase().trim() === neighborhood.toLowerCase().trim())
             ));
             console.log("Filter ", filter);
         } catch(error) {
