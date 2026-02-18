@@ -81,12 +81,6 @@ export default function RouteCodes({searchResults}) {
             body: JSON.stringify({
                 streetNumber: streetNumber,
                 streetName: streetName,
-                cityName: cityName,
-                zipCode: zipCode,
-                gateCode: gateCode,
-                mailRoomCode: mailRoomCode,
-                lockerCode: lockerCode,
-                routeNumber: routeNumber,
                 neighborhood: neighborhood
             })
         }
