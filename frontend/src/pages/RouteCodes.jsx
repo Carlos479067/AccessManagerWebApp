@@ -221,17 +221,6 @@ export default function RouteCodes({searchResults}) {
 
         )
     }
-    // // Searches for an address by street number & name and displays all address information
-    // function SearchAddressToRemove({searchResult}) {
-    //     return (
-    //         <>
-    //             {searchResult.map((result) => (
-    //                 <RenderSearchAddress addressSearchObj={result} key={result.id}/>
-    //             ))}
-    //         </>
-    //     )
-    // }
-    
 
     function RenderAddress({addressMainObj}) {
         return (
@@ -247,7 +236,7 @@ export default function RouteCodes({searchResults}) {
         )
     }
 
-    function RenderSearchAddress({address, onDelete}) {
+    function RenderDeleteAddress({address, onDelete}) {
         if (!address) return null;
 
         return (
@@ -259,7 +248,7 @@ export default function RouteCodes({searchResults}) {
                     {address.mailRoomCode ? <h3>{address.mailRoomCode ? "Mailroom Code: " : ""}{address.mailRoomCode}</h3> : ""}
                     {address.locker_code ? <h3>{address.locker_code ? "Locker Room Code: " : ""}{address.locker_code}</h3> : ""}
 
-                    <button onClick={() => onDelete(address)}>Delete</button>
+                    <button className={"removeSubmitBtn"} onClick={() => onDelete(address)}>Delete</button>
                 </div>
         )
     }
@@ -295,7 +284,7 @@ export default function RouteCodes({searchResults}) {
                                 {searchedAddress && (
                                     <>
                                         <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>
-                                        <RenderSearchAddress address={searchedAddress} onDelete={handleDelete} />
+                                        <RenderDeleteAddress address={searchedAddress} onDelete={handleDelete} />
                                     </>
                                 )}
                             </li>
