@@ -229,7 +229,7 @@ export default function RouteCodes({searchResults}) {
                     {addressMainObj.streetNumber ? <h2>{addressMainObj.streetNumber ? addressMainObj.streetNumber : ""} {addressMainObj.streetNumber ? addressMainObj.streetName : ""}, {addressMainObj.streetNumber ? addressMainObj.cityName : ""}, {addressMainObj.streetNumber ? addressMainObj.zipCode : ""}</h2> : ""}
                     {addressMainObj.neighborhood ? <h2>{addressMainObj.neighborhood ? "Neighborhood: " : ""}{addressMainObj.neighborhood}</h2> : ""}
                     {addressMainObj.gateCode ? ( addressMainObj.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={addressMainObj.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressMainObj.gateCode ? "Gate Code: " : ""}{addressMainObj.gateCode}</h3>) : ""}
-                    {addressMainObj.mailRoomCode ? <h3>{addressMainObj.mailRoomCode ? "Mailroom Code: " : ""}{addressMainObj.mailRoomCode}</h3> : ""}
+                    {addressMainObj.mailRoomCode ? <h3>{addressMainObj.mailRoomCode ? "Mail room Code: " : ""}{addressMainObj.mailRoomCode}</h3> : ""}
                     {addressMainObj.locker_code ? <h3>{addressMainObj.locker_code ? "Locker Room Code: " : ""}{addressMainObj.locker_code}</h3> : ""}
                 </div>
             </li>
@@ -245,7 +245,7 @@ export default function RouteCodes({searchResults}) {
                     <h2>Route: {address.routeNumber}</h2>
                     {address.neighborhood ? <h3>{address.neighborhood ? "Neighborhood: " : ""}{address.neighborhood}</h3> : ""}
                     {address.gateCode ? ( address.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={address.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{address.gateCode ? "Gate Code: " : ""}{address.gateCode}</h3>) : ""}
-                    {address.mailRoomCode ? <h3>{address.mailRoomCode ? "Mailroom Code: " : ""}{address.mailRoomCode}</h3> : ""}
+                    {address.mailRoomCode ? <h3>{address.mailRoomCode ? "Mail room Code: " : ""}{address.mailRoomCode}</h3> : ""}
                     {address.locker_code ? <h3>{address.locker_code ? "Locker Room Code: " : ""}{address.locker_code}</h3> : ""}
 
                     <button className={"removeSubmitBtn"} onClick={() => onDelete(address)}>Delete</button>

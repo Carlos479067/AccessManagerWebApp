@@ -91,7 +91,7 @@ export default function Home ({searchResults}) {
                     <h2>Route: {addressObj.routeNumber}</h2>
                     {addressObj.neighborhood ? <h3>{addressObj.neighborhood ? "Neighborhood: " : ""}{addressObj.neighborhood}</h3> : ""}
                     {addressObj.gateCode ? <h3>{addressObj.gateCode ? "Gate Code: " : ""}{addressObj.gateCode}</h3> : ""}
-                    {addressObj.mailRoomCode ? <h3>{addressObj.mailRoomCode ? "Mailroom Code: " : ""}{addressObj.mailRoomCode}</h3> : ""}
+                    {addressObj.mailRoomCode ? <h3>{addressObj.mailRoomCode ? "Mail room Code: " : ""}{addressObj.mailRoomCode}</h3> : ""}
                     {addressObj.locker_code ? <h3>{addressObj.locker_code ? "Locker Room Code: " : ""}{addressObj.locker_code}</h3> : ""}
                 </div>
             </li>
