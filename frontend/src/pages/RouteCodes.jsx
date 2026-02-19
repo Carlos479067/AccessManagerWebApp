@@ -55,7 +55,6 @@ export default function RouteCodes({searchResults}) {
             <>
                 <div className={"main"}>
                     <NavBarSearch searchAddress={searchResults}/>
-                    <AddressForms searchAddress={searchResults}/>
                 </div>
             </>
     } else {
@@ -254,11 +253,9 @@ export default function RouteCodes({searchResults}) {
         )
     }
 
-    function AddressForms({searchAddress}) {
+    function AddressForms() {
 
         return (
-            searchAddress.length > 0 ? ""
-                :
             <>
                 {buttonAddNewClicked && (
                     <form id="addCodeForm" onSubmit={submitAddress}>
@@ -305,7 +302,7 @@ export default function RouteCodes({searchResults}) {
                 <button className={"editCodeButton"} onClick={() => setButtonAddNewClicked(!buttonAddNewClicked && !buttonRemoveClicked)}>Add new code</button>
                 <button className={"editCodeButton"} onClick={() => setButtonRemoveClicked(!buttonRemoveClicked &&  !buttonAddNewClicked)}>Remove code</button>
             </div>
-            {AddressForms()}
+            {searchResults.length === 0 && AddressForms()};
             {contentToRender}
         </main>
     )
