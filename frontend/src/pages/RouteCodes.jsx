@@ -255,7 +255,7 @@ export default function RouteCodes({searchResults}) {
                     {address.streetNumber ? <h2>{address.streetNumber ? address.streetNumber : ""} {address.streetNumber ? address.streetName : ""}</h2> : ""}
                     <h2>Route: {address.routeNumber}</h2>
                     {address.neighborhood ? <h3>{address.neighborhood ? "Neighborhood: " : ""}{address.neighborhood}</h3> : ""}
-                    {address.gateCode ? ( address.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={address.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3>) : ""}
+                    {address.gateCode ? ( address.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={address.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{address.gateCode ? "Gate Code: " : ""}{address.gateCode}</h3>) : ""}
                     {address.mailRoomCode ? <h3>{address.mailRoomCode ? "Mailroom Code: " : ""}{address.mailRoomCode}</h3> : ""}
                     {address.locker_code ? <h3>{address.locker_code ? "Locker Room Code: " : ""}{address.locker_code}</h3> : ""}
 
