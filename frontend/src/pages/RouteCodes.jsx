@@ -201,28 +201,6 @@ export default function RouteCodes({searchResults}) {
         }
     }
 
-
-    // For search feature in navbar. Maps the addresses and renders the results
-    function MapAddress({searchAddress}) {
-        return (
-            <>
-                {searchAddress.length > 0 ? (
-                    <div>
-                        <h1>Hello</h1>
-                        <ul>
-                            {searchAddress.map((searchAddresses) => (
-                                <RenderAddress addressSearchObj={searchAddresses} key={searchAddresses.id}/>
-                            ))}
-                        </ul>
-                    </div>
-
-                ) : (<p>No address found</p>)
-                }
-            </>
-
-        )
-    }
-
     function RenderAddress({addressMainObj}) {
         return (
             <li>
