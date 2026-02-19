@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 export default function RouteCodes({searchResults}) {
 
     const [addresses, setAddresses] = useState([]);
-    const [address, setAddress] = useState([]);
+    const [searchedAddress, setSearchedAddress] = useState(null); // Single Object
     const [buttonAddNewClicked, setButtonAddNewClicked] = useState(false);
     const [buttonRemoveClicked, setButtonRemoveClicked] = useState(false);
     const [streetNumName, setStreetNumName] = useState("");
@@ -70,18 +70,16 @@ export default function RouteCodes({searchResults}) {
     }
 
     // Handle delete button to remove address from database
-    async function handleDelete(e) {
-        e.preventDefault()
+    async function handleDelete(address) {
 
         const getUrl = `${import.meta.env.VITE_API_URL}/api/deleteAddress`;
-
         const addressObj = {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                streetNumber: streetNumber,
-                streetName: streetName,
-                neighborhood: neighborhood
+                streetNumber: address.streetNumber,
+                streetName: address.streetName,
+                neighborhood: address.neighborhood
             })
         }
 
@@ -91,15 +89,12 @@ export default function RouteCodes({searchResults}) {
             if (!response.ok) {
                 throw new Error(`Network response error: ${response.status}`);
             }
-            const text = await response.text();
-            console.log("Raw response text:", text);
+
+            const deletedAddress = await response.json();
+            console.log("Deleted:", deletedAddress);
+            setSearchedAddress(null); // Remove from UI
             // Use filter() to remove only the deletedAddress and keep all other addresses
-            const filter = setAddresses(addresses.filter(addr =>
-                !(addr.streetNumber.trim() === streetNumber.trim() &&
-                    addr.streetName.toLowerCase().trim() === streetName.toLowerCase().trim() &&
-                    addr.neighborhood.toLowerCase().trim() === neighborhood.toLowerCase().trim())
-            ));
-            console.log("Filter ", filter);
+
         } catch(error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
@@ -200,7 +195,7 @@ export default function RouteCodes({searchResults}) {
             }
             const data = await response.json();
             console.log("Delete search results: ", data);
-            setAddress(data);
+            setSearchedAddress(data.length ? data[0] : null);
         } catch (error) {
             console.error(`There was a problem with fetch request: ${error.message}`);
         }
@@ -226,16 +221,16 @@ export default function RouteCodes({searchResults}) {
 
         )
     }
-    // Searches for an address by street number & name and displays all address information
-    function SearchAddressToRemove({searchResult}) {
-        return (
-            <>
-                {searchResult.map((result) => (
-                    <RenderSearchAddress addressSearchObj={result} key={result.id}/>
-                ))}
-            </>
-        )
-    }
+    // // Searches for an address by street number & name and displays all address information
+    // function SearchAddressToRemove({searchResult}) {
+    //     return (
+    //         <>
+    //             {searchResult.map((result) => (
+    //                 <RenderSearchAddress addressSearchObj={result} key={result.id}/>
+    //             ))}
+    //         </>
+    //     )
+    // }
     
 
     function RenderAddress({addressMainObj}) {
@@ -252,18 +247,20 @@ export default function RouteCodes({searchResults}) {
         )
     }
 
-    function RenderSearchAddress({addressSearchObj}) {
+    function RenderSearchAddress({address, onDelete}) {
+        if (!address) return null;
+
         return (
-            <li>
                 <div className={"searchContainer"}>
-                    {addressSearchObj.streetNumber ? <h2>{addressSearchObj.streetNumber ? addressSearchObj.streetNumber : ""} {addressSearchObj.streetNumber ? addressSearchObj.streetName : ""}</h2> : ""}
-                    <h2>Route: {addressSearchObj.routeNumber}</h2>
-                    {addressSearchObj.neighborhood ? <h3>{addressSearchObj.neighborhood ? "Neighborhood: " : ""}{addressSearchObj.neighborhood}</h3> : ""}
-                    {addressSearchObj.gateCode ? ( addressSearchObj.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={addressSearchObj.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3>) : ""}
-                    {addressSearchObj.mailRoomCode ? <h3>{addressSearchObj.mailRoomCode ? "Mailroom Code: " : ""}{addressSearchObj.mailRoomCode}</h3> : ""}
-                    {addressSearchObj.locker_code ? <h3>{addressSearchObj.locker_code ? "Locker Room Code: " : ""}{addressSearchObj.locker_code}</h3> : ""}
+                    {address.streetNumber ? <h2>{address.streetNumber ? address.streetNumber : ""} {address.streetNumber ? address.streetName : ""}</h2> : ""}
+                    <h2>Route: {address.routeNumber}</h2>
+                    {address.neighborhood ? <h3>{address.neighborhood ? "Neighborhood: " : ""}{address.neighborhood}</h3> : ""}
+                    {address.gateCode ? ( address.gateCode.startsWith("https") ? ( <h3>Gate Code: <a href={address.gateCode} target={"_blank"} rel="noopener noreferrer">Link to open gate</a></h3>) : <h3>{addressSearchObj.gateCode ? "Gate Code: " : ""}{addressSearchObj.gateCode}</h3>) : ""}
+                    {address.mailRoomCode ? <h3>{address.mailRoomCode ? "Mailroom Code: " : ""}{address.mailRoomCode}</h3> : ""}
+                    {address.locker_code ? <h3>{address.locker_code ? "Locker Room Code: " : ""}{address.locker_code}</h3> : ""}
+
+                    <button onClick={() => onDelete(address)}>Delete</button>
                 </div>
-            </li>
         )
     }
 
@@ -293,9 +290,15 @@ export default function RouteCodes({searchResults}) {
                                 <input type={"text"} onChange={handleStreetNumAndName} placeholder={"Address..."} />
                             </li>
                             <li><button className={"removeSubmitBtn"} type={"submit"}>Submit</button></li>
-                            <li>{address.length > 0 && <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>}</li>
-                            <li>{address.length > 0 && <SearchAddressToRemove searchResult={address} />}</li>
-                            <li>{address.length > 0 && <button className={"removeSubmitBtn"} type={"button"} onClick={handleDelete}>Delete</button>}</li>
+                            {/*Show searched address*/}
+                            <li>
+                                {searchedAddress && (
+                                    <>
+                                        <h2 style={{color: "red"}}>Are you sure you want to delete this address?</h2>
+                                        <RenderSearchAddress address={searchedAddress} onDelete={handleDelete} />
+                                    </>
+                                )}
+                            </li>
                         </ul>
                     </form>
                 )}
