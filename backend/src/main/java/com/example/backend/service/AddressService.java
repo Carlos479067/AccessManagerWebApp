@@ -66,6 +66,8 @@ public class AddressService {
             deletedAddress = removeNeighborhood.get(0);
             // Delete address from database
             addressRepository.delete(deletedAddress);
+        } else {
+            throw new IllegalArgumentException("Invalid delete criteria provided");
         }
         return deletedAddress;
     }
