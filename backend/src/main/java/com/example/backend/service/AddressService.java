@@ -44,7 +44,10 @@ public class AddressService {
         // hold the address that gets deleted
         Address deletedAddress = null;
 
-        if(!addressDto.getStreetNumber().isEmpty() && !addressDto.getStreetName().isEmpty()) {
+        if(addressDto.getStreetNumber() != null &&
+            addressDto.getStreetName() != null &&
+            !addressDto.getStreetNumber().isBlank() &&
+            !addressDto.getStreetName().isBlank()) {
             // Find all addresses in repository that match the street number and name
             List<Address> removeAddr = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(addressDto.getStreetNumber(), addressDto.getStreetName());
             // Throw exception if no matches found in database
@@ -55,7 +58,8 @@ public class AddressService {
             deletedAddress = removeAddr.get(0);
             // Delete address from database
             addressRepository.delete(deletedAddress);
-        } else if (!addressDto.getNeighborhood().isEmpty()) {
+        } else if (addressDto.getNeighborhood() != null &&
+                    !addressDto.getNeighborhood().isBlank()) {
             // Find all addresses in repository that match neighborhood name
             List<Address> removeNeighborhood = addressRepository.findByNeighborhoodContainingIgnoreCase(addressDto.getNeighborhood());
             // Throw exception if no matches found in database
