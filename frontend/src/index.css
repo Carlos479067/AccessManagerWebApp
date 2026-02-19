@@ -60,7 +60,7 @@ button:focus-visible {
 }
 
 .searchContainer {
-  color: black;
+  color: red;
   align-items: center;
   font-family: 'Libre Baskerville', serif;
 }
