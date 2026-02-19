@@ -54,7 +54,8 @@ export default function RouteCodes({searchResults}) {
         contentToRender =
             <>
                 <div className={"main"}>
-                    <MapAddress searchAddress={searchResults}/>
+                    <NavBarSearch searchAddress={searchResults}/>
+                    <AddressForms searchAddress={searchResults}/>
                 </div>
             </>
     } else {
@@ -201,6 +202,27 @@ export default function RouteCodes({searchResults}) {
         }
     }
 
+
+    // For search feature in navbar. Maps the addresses and renders the results
+    function NavBarSearch({searchAddress}) {
+        return (
+            <>
+                {searchAddress.length > 0 ? (
+                    <div>
+                        <ul>
+                            {searchAddress.map((searchAddresses) => (
+                                <RenderAddress addressSearchObj={searchAddresses} key={searchAddresses.id}/>
+                            ))}
+                        </ul>
+                    </div>
+
+                ) : (<p>No address found</p>)
+                }
+            </>
+
+        )
+    }
+
     function RenderAddress({addressMainObj}) {
         return (
             <li>
@@ -232,8 +254,11 @@ export default function RouteCodes({searchResults}) {
         )
     }
 
-    function AddressForms() {
+    function AddressForms({searchAddress}) {
+
         return (
+            searchAddress.length > 0 ? ""
+                :
             <>
                 {buttonAddNewClicked && (
                     <form id="addCodeForm" onSubmit={submitAddress}>
