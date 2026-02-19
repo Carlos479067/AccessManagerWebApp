@@ -62,6 +62,10 @@ export default function RouteCodes({searchResults}) {
             <div>
                 <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
                 {AddressForms()}
+                <div id={"routeCodeButtons"}>
+                    <button className={"editCodeButton"} onClick={() => setButtonAddNewClicked(!buttonAddNewClicked && !buttonRemoveClicked)}>Add new code</button>
+                    <button className={"editCodeButton"} onClick={() => setButtonRemoveClicked(!buttonRemoveClicked && !buttonAddNewClicked)}>Remove code</button>
+                </div>
                 <ul>
                     {addresses.map((mainAddress) => {
                         return <RenderAddress addressMainObj={mainAddress} key={mainAddress.id}/>
@@ -299,10 +303,6 @@ export default function RouteCodes({searchResults}) {
 
     return (
         <main>
-            <div id={"routeCodeButtons"}>
-                <button className={"editCodeButton"} onClick={() => setButtonAddNewClicked(!buttonAddNewClicked && !buttonRemoveClicked)}>Add new code</button>
-                <button className={"editCodeButton"} onClick={() => setButtonRemoveClicked(!buttonRemoveClicked &&  !buttonAddNewClicked)}>Remove code</button>
-            </div>
             {contentToRender}
         </main>
     )
